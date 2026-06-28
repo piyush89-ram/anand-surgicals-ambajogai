@@ -9,41 +9,33 @@
         :root {
             --primary-navy: #0B2B5C; 
             --accent-teal: #00A79D;  
-            --bg-light: #F0F4F8;
+            --bg-canvas: #F4F8FA;
             --white: #ffffff;
-            --text-dark: #1A2E40;
-            --text-muted: #627D98;
-            --border: #D3E2F2;
+            --text-dark: #122438;
+            --text-muted: #5A738E;
+            --border-color: #E2EAF1;
             --whatsapp-green: #25D366;
-            
-            /* Exact brand colors extracted from your template banner */
-            --romsons-blue: #0A4A9B;
-            --polymed-blue: #005691;
-            --tynor-blue: #0F3B70;
-            --nulife-blue: #1D3557;
-            --medikit-green: #00875A;
-            --raman-weil-green: #1B4D3E;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
             display: flex;
-            background-color: var(--bg-light);
+            background-color: var(--bg-canvas);
             color: var(--text-dark);
             min-height: 100vh;
         }
 
-        /* --- LEFT SIDEBAR PANEL --- */
+        /* --- STICKY SIDEBAR LEFT PANEL --- */
         .sidebar {
-            width: 340px;
+            width: 350px;
             background-color: var(--white);
-            border-right: 1px solid var(--border);
+            border-right: 1px solid var(--border-color);
             position: fixed;
             top: 0;
             bottom: 0;
@@ -52,140 +44,155 @@
             flex-direction: column;
             padding: 30px 24px;
             overflow-y: auto;
+            z-index: 100;
         }
 
-        /* LOGO FRAMEWORK MATCHING BANNER IMAGE */
-        .logo-wrapper {
+        /* HIGH FIDELITY EXACT LOGO DESIGN RENDERING */
+        .logo-block {
             text-align: center;
             margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 25px;
+            border-bottom: 2px dashed var(--border-color);
         }
 
-        .logo-graphics-container {
+        .as-logo-container {
             position: relative;
-            width: 140px;
-            height: 90px;
-            margin: 0 auto 10px auto;
+            width: 130px;
+            height: 85px;
+            margin: 0 auto;
         }
 
-        .vector-letter-a {
-            font-size: 80px;
+        .letter-a-graphic {
+            font-family: 'Georgia', serif;
+            font-size: 85px;
             font-weight: 900;
-            color: var(--primary-navy);
+            color: #0A2E5C;
             font-style: italic;
             position: absolute;
-            left: 10px;
-            top: -15px;
+            left: 5px;
+            top: -20px;
             line-height: 1;
             z-index: 1;
         }
 
-        .vector-letter-s {
-            font-size: 75px;
-            font-weight: 800;
-            color: var(--accent-teal);
+        .letter-s-graphic {
+            font-family: 'Georgia', serif;
+            font-size: 82px;
+            font-weight: 900;
+            color: #00938A;
             font-style: italic;
             position: absolute;
-            left: 55px;
-            top: -5px;
+            left: 52px;
+            top: -10px;
             line-height: 1;
             z-index: 2;
         }
 
-        .scalpel-accent-line {
+        .scalpel-line {
             position: absolute;
             bottom: 12px;
-            left: 20px;
-            width: 100px;
+            left: 12px;
+            width: 105px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-navy) 30%, var(--accent-teal) 100%);
-            transform: rotate(-12deg);
+            background: linear-gradient(90deg, #0A2E5C, #00938A);
+            transform: rotate(-14deg);
             border-radius: 2px;
             z-index: 3;
         }
 
-        .company-main-title {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--primary-navy);
-            letter-spacing: 1.5px;
-            margin-top: 5px;
-            text-transform: uppercase;
+        .anand-text-header {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: #0A2E5C;
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-top: 15px;
         }
 
-        .company-subtitle-bar {
-            background-color: var(--accent-teal);
+        .surgicals-text-sub {
+            font-size: 15px;
+            font-weight: 700;
+            color: #00938A;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            border-top: 1px solid #00938A;
+            border-bottom: 1px solid #00938A;
+            padding: 2px 0;
+            display: inline-block;
+        }
+
+        .trusted-partner-pill {
+            background-color: #0A2E5C;
             color: var(--white);
             font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 6px;
-        }
-
-        .tagline-pulse {
-            font-size: 13px;
-            color: var(--accent-teal);
             font-weight: 600;
-            margin-top: 12px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-top: 15px;
+            display: inline-block;
+            letter-spacing: 0.5px;
         }
 
         .search-container {
             margin: 20px 0;
         }
 
-        .search-input {
+        .search-bar-input {
             width: 100%;
             padding: 12px 16px;
-            border: 2px solid var(--border);
+            border: 2px solid var(--border-color);
             border-radius: 8px;
             font-size: 14px;
             outline: none;
+            transition: border-color 0.2s;
         }
 
-        .search-input:focus {
+        .search-bar-input:focus {
             border-color: var(--accent-teal);
         }
 
-        .contact-info-panel {
+        /* Bottom Footer Panel Contact Info */
+        .contact-card-panel {
             margin-top: auto;
-            background-color: var(--primary-navy);
+            background-color: #0A2E5C;
             color: var(--white);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
         }
 
-        .contact-row {
+        .contact-info-row {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 14px;
-            font-size: 13px;
+            margin-bottom: 15px;
+            font-size: 12.5px;
             line-height: 1.4;
         }
 
-        .contact-row i {
+        .contact-info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info-row i {
             color: var(--accent-teal);
             margin-right: 12px;
-            font-size: 16px;
+            font-size: 15px;
             margin-top: 2px;
         }
 
-        /* --- MAIN AREA CONTENT --- */
-        .main-content {
-            margin-left: 340px;
+        /* --- MAIN DIRECTORY WORKSPACE --- */
+        .main-workspace {
+            margin-left: 350px;
             flex-grow: 1;
             padding: 40px;
         }
 
-        .banner-panel {
-            background-color: var(--white);
-            border-left: 6px solid var(--primary-navy);
-            border-radius: 8px;
-            padding: 24px;
+        .hero-banner-display {
+            background: linear-gradient(135deg, #0A2E5C, #007A75);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
             margin-bottom: 35px;
             display: flex;
             justify-content: space-between;
@@ -194,129 +201,191 @@
             gap: 20px;
         }
 
-        .banner-text h2 {
-            font-size: 24px;
-            color: var(--primary-navy);
+        .hero-title h2 {
+            font-size: 26px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .banner-badges {
+        .badge-list {
             display: flex;
             gap: 12px;
+            flex-wrap: wrap;
         }
 
-        .feature-badge {
-            background-color: #EBF8FF;
-            border: 1px solid var(--border);
-            color: var(--primary-navy);
+        .badge-pill-item {
+            background: rgba(255, 255, 255, 0.15);
             padding: 8px 14px;
             border-radius: 6px;
             font-size: 12px;
             font-weight: 700;
         }
 
-        .grid-title {
-            font-size: 16px;
+        .section-header-title {
+            font-size: 15px;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 8px;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
         }
 
-        /* --- DYNAMIC BRAND GRID --- */
-        .brands-layout-grid {
+        /* --- GRID COMPONENT & EXPLICIT STYLING FOR HOVER --- */
+        .brand-directory-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
         }
 
-        /* CARD HOVER EFFECT: Lift up, shadows soften, borders glow */
-        .brand-display-card {
+        /* HOVER EFFECT ARCHITECTURE */
+        .brand-card-item {
             background-color: var(--white);
-            border: 2px solid var(--border);
+            border: 2px solid var(--border-color);
             border-radius: 14px;
-            padding: 20px;
+            padding: 24px 20px;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 290px;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+            min-height: 300px;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                         border-color 0.3s ease, 
-                        box-shadow 0.3s ease;
+                        box-shadow 0.4s ease;
         }
 
-        .brand-display-card:hover {
-            transform: translateY(-8px);
+        .brand-card-item:hover {
+            transform: translateY(-8px) scale(1.02);
             border-color: var(--accent-teal);
-            box-shadow: 0 12px 24px rgba(11, 43, 92, 0.15);
+            box-shadow: 0 15px 30px rgba(11, 43, 92, 0.12);
         }
 
-        /* Mini Image Box Placeholder matching the layout */
-        .brand-image-holder {
+        /* Clean Picture Wrapper Window */
+        .brand-vector-visual-box {
             width: 100%;
-            height: 100px;
+            height: 110px;
             background-color: #F7FAFC;
-            border: 1px dashed #CBD5E0;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            border-radius: 10px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-muted);
-            font-size: 12px;
-            overflow: hidden;
+            border: 1px solid #E2E8F0;
+            transition: background-color 0.3s;
         }
 
-        .brand-image-holder i {
-            font-size: 24px;
-            color: #A0AEC0;
+        .brand-card-item:hover .brand-vector-visual-box {
+            background-color: #EDFDFB;
         }
 
-        /* Exact Font and Typography Styles mimicking original banner design */
-        .font-romsons {
+        .brand-vector-visual-box svg {
+            width: 50px;
+            height: 50px;
+            fill: none;
+            stroke: var(--accent-teal);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* --- EXACT LOGO BRAND TYPOGRAPHY CONTEXTS --- */
+        .logo-style-romsons {
             font-family: 'Georgia', serif;
             font-style: italic;
             font-weight: bold;
-            color: var(--romsons-blue);
-            font-size: 24px;
-        }
-
-        .font-polymed {
-            font-family: 'Arial Black', sans-serif;
-            font-weight: 900;
-            color: var(--polymed-blue);
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-        }
-
-        .font-tynor {
-            font-family: 'Impact', sans-serif;
-            color: var(--tynor-blue);
-            letter-spacing: 1px;
+            color: #0B4A9C;
             font-size: 26px;
         }
 
-        .font-default-brand {
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: 800;
-            color: var(--primary-navy);
+        .logo-style-polymed {
+            font-family: 'Arial Black', Gadget, sans-serif;
+            font-weight: 900;
+            color: #005A9C;
+            letter-spacing: -1px;
+            font-size: 23px;
+        }
+
+        .logo-style-topspinal {
+            font-family: 'Palatino', 'Book Antiqua', serif;
+            font-weight: 700;
+            color: #A31D1D;
             font-size: 22px;
         }
 
-        .brand-slogan {
+        .logo-style-surgiplus {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-weight: 800;
+            color: #0E5A8A;
+            font-size: 24px;
+        }
+
+        .logo-style-tynor {
+            font-family: 'Impact', Charcoal, sans-serif;
+            color: #113A6B;
+            letter-spacing: 1px;
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+
+        .logo-style-littleangel {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #9C27B0;
+            font-weight: bold;
+            font-size: 21px;
+        }
+
+        .logo-style-nulife {
+            font-family: 'Verdana', Geneva, sans-serif;
+            font-weight: 700;
+            color: #005670;
+            font-size: 23px;
+        }
+
+        .logo-style-medikit {
+            font-family: 'Arial', sans-serif;
+            font-weight: 800;
+            color: #00875A;
+            font-size: 23px;
+        }
+
+        .logo-style-ramanweil {
+            font-family: 'Century Gothic', sans-serif;
+            font-weight: 700;
+            color: #1A365D;
+            font-size: 21px;
+        }
+
+        .logo-style-healquick {
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 700;
+            color: #2F855A;
+            font-size: 24px;
+        }
+
+        .logo-style-carefirst {
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 700;
+            color: #2B6CB0;
+            font-size: 24px;
+        }
+
+        .logo-style-generic {
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 800;
+            color: #0A2E5C;
+            font-size: 22px;
+        }
+
+        .brand-motto-text {
             font-size: 12px;
             color: var(--text-muted);
             margin: 6px 0 15px 0;
             font-style: italic;
         }
 
-        .whatsapp-order-btn {
+        /* WhatsApp Transaction Trigger Action Pushes */
+        .whatsapp-redirect-link {
             background-color: var(--whatsapp-green);
             color: var(--white);
             text-decoration: none;
@@ -328,132 +397,269 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            transition: background-color 0.2s;
         }
 
-        .whatsapp-order-btn:hover {
-            background-color: #1EBE57;
+        .whatsapp-redirect-link:hover {
+            background-color: #20BA5A;
         }
 
         @media (max-width: 992px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; position: relative; border-right: none; }
-            .main-content { margin-left: 0; padding: 20px; }
+            .main-workspace { margin-left: 0; padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- SIDEBAR LEFT -->
     <div class="sidebar">
-        <div class="logo-wrapper">
-            <div class="logo-graphics-container">
-                <div class="vector-letter-a">A</div>
-                <div class="vector-letter-s">S</div>
-                <div class="scalpel-accent-line"></div>
+        <div class="logo-block">
+            <div class="as-logo-container">
+                <div class="letter-a-graphic">A</div>
+                <div class="letter-s-graphic">S</div>
+                <div class="scalpel-line"></div>
             </div>
-            <div class="company-main-title">Anand Surgicals</div>
-            <div class="company-subtitle-bar">Authorised Super Distributor</div>
-            <div class="tagline-pulse">Your Trusted Healthcare Partner</div>
+            <div class="anand-text-header">ANAND</div>
+            <div class="surgicals-text-sub">Surgicals</div>
+            <br>
+            <div class="trusted-partner-pill">Your Trusted Healthcare Partner</div>
         </div>
 
         <div class="search-container">
-            <input type="text" class="search-input" id="filterInput" placeholder="🔍 Search authorized brands..." onkeyup="runFilter()">
+            <input type="text" class="search-bar-input" id="directorySearchInput" placeholder="🔍 Search partners & brands..." onkeyup="executeLiveFilter()">
         </div>
 
-        <div class="contact-info-panel">
-            <div class="contact-row">
-                <i class="fa-solid fa-map-location-dot"></i>
+        <div class="contact-card-panel">
+            <div class="contact-info-row">
+                <i class="fa-solid fa-location-dot"></i>
                 <div><strong>ADDRESS:</strong><br>Pokri Road, Bansilal Nagar, Ambajogai</div>
             </div>
-            <div class="contact-row">
-                <i class="fa-solid fa-mobile-screen-button"></i>
+            <div class="contact-info-row">
+                <i class="fa-solid fa-phone"></i>
                 <div><strong>MOBILE NUMBERS:</strong><br>9420192170 | 7666421106</div>
             </div>
-            <div class="contact-row">
-                <i class="fa-solid fa-envelope-open-text"></i>
+            <div class="contact-info-row">
+                <i class="fa-solid fa-envelope"></i>
                 <div><strong>EMAIL ID:</strong><br>anand.surgicals@gmail.com</div>
             </div>
         </div>
     </div>
 
-    <!-- MAIN DASHBOARD -->
-    <div class="main-content">
-        <div class="banner-panel">
-            <div class="banner-text">
-                <h2>Authorized Directory</h2>
-                <p style="color: var(--text-muted); font-size: 14px;">Premium Surgical, Orthopaedic, and Medical Consumables.</p>
+    <div class="main-workspace">
+        <div class="hero-banner-display">
+            <div class="hero-title">
+                <h2>Authorised Super Distributor</h2>
+                <p style="opacity: 0.85; font-size: 14px; margin-top: 4px;">Premium Medical Products and Equipment Solutions Directory.</p>
             </div>
-            <div class="banner-badges">
-                <div class="feature-badge">100% Genuine</div>
-                <div class="feature-badge">Free Delivery</div>
+            <div class="badge-list">
+                <div class="badge-pill-item">100% Genuine Products</div>
+                <div class="badge-pill-item">Free Shop Delivery</div>
             </div>
         </div>
 
-        <div class="grid-title">Corporate Portfolio Links</div>
+        <div class="section-header-title">Corporate Partner Portfolio</div>
 
-        <div class="brands-layout-grid" id="portfolioGrid">
+        <div class="brand-directory-grid" id="brandDirectoryGrid">
             
-            <!-- Romsons Card Custom Font & Styling -->
-            <div class="brand-display-card">
-                <div class="brand-image-holder">
-                    <i class="fa-solid fa-file-medical"></i> <!-- Replace with <img src="romsons.jpg"> anytime -->
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 </div>
                 <div>
-                    <div class="brand-main-title font-romsons">Romsons</div>
-                    <div class="brand-slogan">Sustaining the Life Force</div>
+                    <div class="brand-name-header logo-style-romsons">Romsons</div>
+                    <div class="brand-motto-text">Sustaining the Life Force</div>
                 </div>
-                <a href="https://wa.me/919420192170?text=Hello%20Anand%20Surgicals,%20I%20want%20to%20inquire%20about%20Romsons%20products." target="_blank" class="whatsapp-order-btn"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Romsons%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
             </div>
 
-            <!-- Polymed Card Custom Font & Styling -->
-            <div class="brand-display-card">
-                <div class="brand-image-holder">
-                    <i class="fa-solid fa-kit-medical"></i>
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                 </div>
                 <div>
-                    <div class="brand-main-title font-polymed">Polymed</div>
-                    <div class="brand-slogan">We Care As We Cure</div>
+                    <div class="brand-name-header logo-style-polymed">Polymed</div>
+                    <div class="brand-motto-text">We Care As We Cure</div>
                 </div>
-                <a href="https://wa.me/919420192170?text=Hello%20Anand%20Surgicals,%20I%20want%20to%20inquire%20about%20Polymed%20products." target="_blank" class="whatsapp-order-btn"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Polymed%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
             </div>
 
-            <!-- Tynor Card Custom Font & Styling -->
-            <div class="brand-display-card">
-                <div class="brand-image-holder">
-                    <i class="fa-solid fa-crutch"></i>
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                 </div>
                 <div>
-                    <div class="brand-main-title font-tynor">Tynor</div>
-                    <div class="brand-slogan">Cure Innovation</div>
+                    <div class="brand-name-header logo-style-topspinal">Top Spinal</div>
+                    <div class="brand-motto-text">Care You Can Trust</div>
                 </div>
-                <a href="https://wa.me/919420192170?text=Hello%20Anand%20Surgicals,%20I%20want%20to%20inquire%20about%20Tynor%20products." target="_blank" class="whatsapp-order-btn"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Top%20Spinal%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
             </div>
 
-            <!-- Medikit Card -->
-            <div class="brand-display-card">
-                <div class="brand-image-holder">
-                    <i class="fa-solid fa-briefcase-medical"></i>
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </div>
                 <div>
-                    <div class="brand-main-title font-default-brand" style="color: var(--medikit-green);">Medikit</div>
-                    <div class="brand-slogan">Complete Healthcare Solutions</div>
+                    <div class="brand-name-header logo-style-surgiplus">Surgiplus+</div>
+                    <div class="brand-motto-text">Surgical Disposables</div>
                 </div>
-                <a href="https://wa.me/919420192170?text=Hello%20Anand%20Surgicals,%20I%20want%20to%20inquire%20about%20Medikit%20products." target="_blank" class="whatsapp-order-btn"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Surgiplus%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M18 15h-2v4h2v-4zM8 15H6v4h2v-4zM12 5h-2v14h2V5z"></path></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-tynor">Tynor</div>
+                    <div class="brand-motto-text">Cure Innovation</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Tynor%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-littleangel">Little Angel</div>
+                    <div class="brand-motto-text">Caring for Little Ones</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Little%20Angel%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-nulife">Nulife</div>
+                    <div class="brand-motto-text">Triple Safety. Triple Trust.</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Nulife%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-medikit">Medikit</div>
+                    <div class="brand-motto-text">Complete Healthcare Solutions</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Medikit%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.5-2.5 3.5-2.5 5.5h20c0-2-1-4-2.5-5.5"></path><path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"></path></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-ramanweil">Raman & Weil</div>
+                    <div class="brand-motto-text">Healthcare Products</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Raman%20and%20Weil%20supplies." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-healquick">HealQuick</div>
+                    <div class="brand-motto-text">Solutions for a Better Life</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20HealQuick%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12h10V2z"></path></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-carefirst">CareFirst</div>
+                    <div class="brand-motto-text">We Care For Life</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20CareFirst%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M6 2v6h12V2zm0 14h12v6H6z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-generic">Punishka</div>
+                    <div class="brand-motto-text">Surgical Accessories</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Punishka%20surgical%20items." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-generic" style="color: #0077B6;">Aqua Fine</div>
+                    <div class="brand-motto-text">Precision. Purity. Protection.</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Aqua%20Fine%20injection%20items." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-generic" style="color: #4A5568;">Sava</div>
+                    <div class="brand-motto-text">Strong Support. Gentle Care</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Sava%20healthcare%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-generic" style="color: #6B46C1;">Prime Cast</div>
+                    <div class="brand-motto-text">Premium Orthopaedic Solutions</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Prime%20Cast%20orthopaedic%20items." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-generic">Rahul Ortho</div>
+                    <div class="brand-motto-text">Walker & Commode Chairs</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Rahul%20Ortho%20mobility%20equipment." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+
+            <div class="brand-card-item">
+                <div class="brand-vector-visual-box">
+                    <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.5-2.5 3.5-2.5 5.5h20c0-2-1-4-2.5-5.5"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div>
+                    <div class="brand-name-header logo-style-generic" style="color: #C05621;">Raxon Biomedical</div>
+                    <div class="brand-motto-text">Dependable. Durable. Dedicated.</div>
+                </div>
+                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Raxon%20Biomedical%20supplies." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
             </div>
 
         </div>
     </div>
 
     <script>
-        function runFilter() {
-            const input = document.getElementById('filterInput');
+        function executeLiveFilter() {
+            const input = document.getElementById('directorySearchInput');
             const filter = input.value.toUpperCase();
-            const grid = document.getElementById('portfolioGrid');
-            const cards = grid.getElementsByClassName('brand-display-card');
+            const grid = document.getElementById('brandDirectoryGrid');
+            const cards = grid.getElementsByClassName('brand-card-item');
 
             for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByClassName('brand-main-title')[0];
+                let title = cards[i].getElementsByClassName('brand-name-header')[0];
                 if (title) {
                     let txtValue = title.textContent || title.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -466,4 +672,5 @@
         }
     </script>
 </body>
+</html>
 </html>

@@ -3,157 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anand Surgicals - Product Catalog</title>
+    <title>Anand Surgicals - Authorised Super Distributor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #eef2f7;
-            --text-dark: #333333;
-            --text-light: #666666;
+            --primary-navy: #002D62;
+            --accent-teal: #007A78;
+            --bg-light: #F4F7F9;
+            --card-hover: #E6F2F2;
+            --text-dark: #222222;
+            --text-muted: #555555;
             --white: #ffffff;
-            --border-color: #d1d8e0;
+            --border: #DCE4EC;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
         body {
             display: flex;
-            background-color: var(--secondary-color);
+            background-color: var(--bg-light);
             color: var(--text-dark);
             min-height: 100vh;
         }
 
-        /* Left Sidebar Layout */
+        /* --- LEFT SIDEBAR PANEL --- */
         .sidebar {
-            width: 280px;
+            width: 320px;
             background-color: var(--white);
-            border-right: 1px solid var(--border-color);
+            border-right: 1px solid var(--border);
             position: fixed;
             top: 0;
             bottom: 0;
             left: 0;
             display: flex;
             flex-direction: column;
-            padding: 24px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            overflow-y: auto;
         }
 
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 24px;
-            border-bottom: 2px solid var(--secondary-color);
-            margin-bottom: 24px;
+        .brand-logo-section {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--bg-light);
+            margin-bottom: 25px;
         }
 
         .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 24px;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary-navy);
+            letter-spacing: -1px;
         }
 
-        .logo-container h1 {
-            font-size: 20px;
-            color: var(--primary-color);
-            text-align: center;
+        .logo-placeholder span {
+            color: var(--accent-teal);
+        }
+
+        .company-title {
+            font-size: 22px;
             font-weight: 700;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            margin-top: 5px;
         }
 
-        .logo-container p {
-            font-size: 12px;
-            color: var(--text-light);
-            margin-top: 4px;
+        .tagline {
+            font-size: 13px;
+            color: var(--accent-teal);
+            font-weight: 600;
+            margin-top: 2px;
         }
 
-        /* Search & Filter Elements */
-        .search-box {
+        .search-wrapper {
+            margin-bottom: 25px;
+        }
+
+        .search-input {
             width: 100%;
-            padding: 10px 14px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            margin-bottom: 20px;
-            outline: none;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
             font-size: 14px;
-            transition: border-color 0.2s;
+            outline: none;
+            transition: all 0.3s;
         }
 
-        .search-box:focus {
-            border-color: var(--primary-color);
+        .search-input:focus {
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 0 3px rgba(0, 122, 120, 0.1);
         }
 
-        /* Main Content Panel */
+        /* Sidebar Info Blocks */
+        .info-section {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .info-item i {
+            color: var(--accent-teal);
+            margin-right: 10px;
+            margin-top: 3px;
+            font-size: 15px;
+        }
+
+        /* --- MAIN DYNAMIC CONTENT --- */
         .main-content {
-            margin-left: 280px;
+            margin-left: 320px;
             flex-grow: 1;
             padding: 40px;
         }
 
-        .header-banner {
-            background-color: var(--white);
-            padding: 24px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-            border: 1px solid var(--border-color);
+        .top-banner {
+            background: linear-gradient(135deg, var(--primary-navy), var(--accent-teal));
+            color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(0, 45, 98, 0.15);
         }
 
-        .header-banner h2 {
-            font-size: 24px;
-            color: var(--text-dark);
-            margin-bottom: 6px;
+        .top-banner h2 {
+            font-size: 26px;
+            margin-bottom: 5px;
+            font-weight: 600;
         }
 
-        /* Responsive Brands Grid */
-        .brands-grid {
+        .badges-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .badge-pill {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Companies Grid */
+        .section-heading {
+            font-size: 18px;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .companies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             gap: 20px;
         }
 
-        .brand-card {
+        .company-card {
             background-color: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px 20px;
             text-align: center;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 120px;
+            min-height: 130px;
+            position: relative;
         }
 
-        .brand-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            border-color: var(--primary-color);
+        .company-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-teal);
+            box-shadow: 0 8px 20px rgba(0, 122, 120, 0.08);
+            background-color: var(--card-hover);
         }
 
-        .brand-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-dark);
+        .card-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 6px;
         }
 
-        /* Responsive Fixes */
-        @media (max-width: 768px) {
+        .card-subtext {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 992px) {
             body {
                 flex-direction: column;
             }
@@ -161,7 +220,8 @@
                 width: 100%;
                 position: relative;
                 border-right: none;
-                border-bottom: 1px solid var(--border-color);
+                border-bottom: 1px solid var(--border);
+                overflow-y: visible;
             }
             .main-content {
                 margin-left: 0;
@@ -172,57 +232,150 @@
 </head>
 <body>
 
-    <!-- LEFT SIDEBAR -->
+    <!-- LEFT SIDEBAR DESIGN -->
     <div class="sidebar">
-        <div class="logo-container">
-            <!-- Replace text with <img src="/static/logo.png" alt="Logo"> if you have a real image file -->
-            <div class="logo-placeholder">AS</div>
-            <h1>Anand Surgicals</h1>
-            <p>Surgical & Medical Distributors</p>
+        <div class="brand-logo-section">
+            <div class="logo-placeholder">A<span>S</span></div>
+            <div class="company-title">Anand Surgicals</div>
+            <div class="tagline">Your Trusted Healthcare Partner</div>
         </div>
 
-        <input type="text" class="search-box" id="brandSearch" placeholder="Search companies..." onkeyup="filterBrands()">
+        <div class="search-wrapper">
+            <input type="text" class="search-input" id="searchBar" placeholder="🔍 Search partners & brands..." onkeyup="searchCompanies()">
+        </div>
+
+        <!-- Address and Contact Details directly from banner -->
+        <div class="info-section">
+            <div class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <strong>Address:</strong><br>
+                    Pokri Road, Bansilal Nagar,<br>Ambajogai
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <strong>Mobile Numbers:</strong><br>
+                    9420192170 | 7666421106<br>
+                    9175930956 | 8180083357
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <strong>Email ID:</strong><br>
+                    anand.surgicals@gmail.com
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- MAIN PRODUCT SPACE -->
+    <!-- MAIN INTERACTIVE DISPLAY -->
     <div class="main-content">
-        <div class="header-banner">
-            <h2>Authorized Partner Directory</h2>
-            <p style="color: var(--text-light); font-size: 14px;">Browse trusted global healthcare, pharmaceutical, and surgical equipment brands.</p>
+        <div class="top-banner">
+            <h2>Authorised Super Distributor</h2>
+            <p>Providing premium surgical equipment, healthcare medical solutions, and diagnostic supplies.</p>
+            
+            <div class="badges-container">
+                <div class="badge-pill"><i class="fa-solid fa-award"></i> 100% Genuine Products</div>
+                <div class="badge-pill"><i class="fa-solid fa-truck"></i> Free Shop Delivery</div>
+                <div class="badge-pill"><i class="fa-solid fa-clock"></i> 24 x 7 Available</div>
+            </div>
         </div>
 
-        <!-- Dynamic Brand Grid -->
-        <div class="brands-grid" id="brandsGrid">
-            <div class="brand-card"><span class="brand-name">Romson Group</span></div>
-            <div class="brand-card"><span class="brand-name">Romsons Scientific</span></div>
-            <div class="brand-card"><span class="brand-name">Johnson & Johnson</span></div>
-            <div class="brand-card"><span class="brand-name">Ethicon</span></div>
-            <div class="brand-card"><span class="brand-name">Becton Dickinson (BD)</span></div>
-            <div class="brand-card"><span class="brand-name">Smith & Nephew</span></div>
-            <div class="brand-card"><span class="brand-name">3M Healthcare</span></div>
-            <div class="brand-card"><span class="brand-name">B. Braun</span></div>
-            <div class="brand-card"><span class="brand-name">Medtronic</span></div>
-            <div class="brand-card"><span class="brand-name">Abbott</span></div>
-            <div class="brand-card"><span class="brand-name">Baxter International</span></div>
-            <div class="brand-card"><span class="brand-name">Nipro Medical</span></div>
-            <div class="brand-card"><span class="brand-name">Hindustan Syringes (HMD)</span></div>
-            <div class="brand-card"><span class="brand-name">Poly Medicure (Polymed)</span></div>
+        <div class="section-heading">Our Corporate Medical Partners</div>
+
+        <!-- Grid generating every brand explicitly seen in your image banner -->
+        <div class="companies-grid" id="companyGrid">
+            <div class="company-card">
+                <div class="card-name">Romsons</div>
+                <div class="card-subtext">Sustaining the Life Force</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Polymed</div>
+                <div class="card-subtext">We Care As We Cure</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Top Spinal</div>
+                <div class="card-subtext">Care You Can Trust</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Surgiplus+</div>
+                <div class="card-subtext">Surgical Disposables</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Tynor</div>
+                <div class="card-subtext">Cure Innovation</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Little Angel</div>
+                <div class="card-subtext">Caring for Little Ones</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Nulife</div>
+                <div class="card-subtext">Triple Safety. Triple Trust.</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Medikit</div>
+                <div class="card-subtext">Complete Healthcare Solutions</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Raman & Weil</div>
+                <div class="card-subtext">Health Care Products</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Punishka</div>
+                <div class="card-subtext">Surgical Accessories</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Dynamic</div>
+                <div class="card-subtext">Techno Medicals</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Jaycot</div>
+                <div class="card-subtext">Care. Commitment. Cure.</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Beurer</div>
+                <div class="card-subtext">Health and Well-being</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Aqua Fine</div>
+                <div class="card-subtext">Precision. Purity. Protection.</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Curesafe</div>
+                <div class="card-subtext">We Care For Life</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Sava</div>
+                <div class="card-subtext">Strong Support</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Rahul Ortho</div>
+                <div class="card-subtext">Walker & Commode Chairs</div>
+            </div>
+            <div class="company-card">
+                <div class="card-name">Raxon Biomedical</div>
+                <div class="card-subtext">Dependable. Durable. Dedicated.</div>
+            </div>
         </div>
     </div>
 
-    <!-- Instant Search Filtering JavaScript -->
+    <!-- Live Filter Engine -->
     <script>
-        function filterBrands() {
-            const input = document.getElementById('brandSearch');
+        function searchCompanies() {
+            const input = document.getElementById('searchBar');
             const filter = input.value.toUpperCase();
-            const grid = document.getElementById('brandsGrid');
-            const cards = grid.getElementsByClassName('brand-card');
+            const grid = document.getElementById('companyGrid');
+            const cards = grid.getElementsByClassName('company-card');
 
             for (let i = 0; i < cards.length; i++) {
-                let name = cards[i].getElementsByClassName('brand-name')[0];
+                let name = cards[i].getElementsByClassName('card-name')[0];
                 if (name) {
-                    let txtValue = name.textContent || name.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    let textValue = name.textContent || name.innerText;
+                    if (textValue.toUpperCase().indexOf(filter) > -1) {
                         cards[i].style.display = "";
                     } else {
                         cards[i].style.display = "none";

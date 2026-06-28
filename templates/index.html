@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anand Surgicals - Product Catalog & Ordering</title>
+    <title>Anand Surgicals - Product Catalog</title>
     <style>
         :root {
-            --primary-blue: #0A2540;
-            --accent-teal: #007A87;
-            --light-bg: #F4F7F9;
-            --card-white: #FFFFFF;
+            --primary-color: #0056b3;
+            --secondary-color: #eef2f7;
             --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border-color: #d1d8e0;
         }
 
         * {
@@ -21,377 +22,215 @@
         }
 
         body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
             display: flex;
-            flex-direction: column;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
             min-height: 100vh;
         }
 
-        /* Header Setup */
-        header {
-            background: linear-gradient(135deg, var(--primary-blue), #103154);
-            color: white;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px solid var(--accent-teal);
-        }
-
-        .logo-area h1 {
-            font-size: 28px;
-            letter-spacing: 1px;
-        }
-        .logo-area p {
-            font-size: 14px;
-            color: #A0C4FF;
-            font-style: italic;
-        }
-
-        .contact-quick {
-            text-align: right;
-            font-size: 14px;
-        }
-
-        /* Main Workspace Layout */
-        .container {
-            display: flex;
-            flex: 1;
-            width: 100%;
-            max-width: 1400px;
-            margin: 20px auto;
-            gap: 20px;
-            padding: 0 20px;
-        }
-
-        /* Sidebar - Brand Filters */
-        aside {
+        /* Left Sidebar Layout */
+        .sidebar {
             width: 280px;
-            background: var(--card-white);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            height: fit-content;
-        }
-
-        aside h2 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: var(--primary-blue);
-            border-bottom: 2px solid var(--light-bg);
-            padding-bottom: 8px;
-        }
-
-        .filter-btn {
-            display: block;
-            width: 100%;
-            padding: 10px 15px;
-            margin-bottom: 8px;
-            background: var(--light-bg);
-            border: 1px solid transparent;
-            border-radius: 6px;
-            text-align: left;
-            cursor: pointer;
-            font-weight: 600;
-            color: #555;
-            transition: all 0.2s;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent-teal);
-            color: white;
-        }
-
-        /* Product Catalog Grid */
-        main {
-            flex: 1;
-        }
-
-        .catalog-header {
-            background: var(--card-white);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: var(--card-white);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background-color: var(--white);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid #E1E8ED;
-            transition: transform 0.2s;
+            padding: 24px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
         }
 
-        .product-card:hover {
-            transform: translateY(-4px);
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 24px;
+            border-bottom: 2px solid var(--secondary-color);
+            margin-bottom: 24px;
         }
 
-        .brand-badge {
-            font-size: 11px;
-            text-transform: uppercase;
-            background: #E2F0F1;
-            color: var(--accent-teal);
-            padding: 3px 8px;
-            border-radius: 12px;
-            width: fit-content;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .product-img-placeholder {
-            background: #F8F9FA;
-            height: 180px;
-            border-radius: 6px;
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 15px;
-            border: 1px dashed #DDD;
-        }
-
-        .product-title {
-            font-size: 18px;
-            color: var(--primary-blue);
-            margin-bottom: 8px;
-        }
-
-        .product-desc {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .order-action {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: auto;
-        }
-
-        .price {
-            font-size: 18px;
             font-weight: bold;
-            color: #2E7D32;
-        }
-
-        .whatsapp-btn {
-            background-color: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 13px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: background 0.2s;
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-        }
-
-        /* Footer Info */
-        footer {
-            background: var(--primary-blue);
-            color: white;
-            padding: 30px 5%;
-            margin-top: auto;
-            font-size: 14px;
-            border-top: 4px solid var(--accent-teal);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-col h3 {
-            color: #FFF;
+            font-size: 24px;
             margin-bottom: 12px;
-            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
         }
 
-        .footer-col p {
-            color: #CCC;
-            line-height: 1.6;
+        .logo-container h1 {
+            font-size: 20px;
+            color: var(--primary-color);
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .logo-container p {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Search & Filter Elements */
+        .search-box {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 20px;
+            outline: none;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Main Content Panel */
+        .main-content {
+            margin-left: 280px;
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        .header-banner {
+            background-color: var(--white);
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+        }
+
+        .header-banner h2 {
+            font-size: 24px;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        /* Responsive Brands Grid */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .brand-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 120px;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-color);
+        }
+
+        .brand-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Header -->
-    <header>
-        <div class="logo-area">
-            <h1>ANAND SURGICALS</h1>
-            <p>Your Trusted Healthcare Partner • Authorised Super Distributor</p>
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <!-- Replace text with <img src="/static/logo.png" alt="Logo"> if you have a real image file -->
+            <div class="logo-placeholder">AS</div>
+            <h1>Anand Surgicals</h1>
+            <p>Surgical & Medical Distributors</p>
         </div>
-        <div class="contact-quick">
-            <p>📧 anand.surgicals@gmail.com</p>
-            <p>📞 +91 9420192170 / 7666421106</p>
-        </div>
-    </header>
 
-    <!-- Main Workspace Container -->
-    <div class="container">
-        
-        <!-- Filter Sidebar -->
-        <aside>
-            <h2>Filter By Brand</h2>
-            <button class="filter-btn active" onclick="filterBrand('all')">All Companies</button>
-            <button class="filter-btn" onclick="filterBrand('rahul-ortho')">Rahul Ortho</button>
-            <button class="filter-btn" onclick="filterBrand('tynor')">Tynor</button>
-            <button class="filter-btn" onclick="filterBrand('romsons')">Romsons</button>
-            <button class="filter-btn" onclick="filterBrand('polymed')">Polymed</button>
-            <button class="filter-btn" onclick="filterBrand('spotlight')">Product Spotlights</button>
-        </aside>
-
-        <!-- Product Display Panel -->
-        <main>
-            <div class="catalog-header">
-                <h2 id="catalog-title">Showing All Authorized Products</h2>
-            </div>
-
-            <div class="product-grid" id="product-container">
-                
-                <!-- Product 1: Rahul Ortho Walker -->
-                <div class="product-card" data-brand="rahul-ortho">
-                    <div>
-                        <div class="brand-badge">Rahul Ortho</div>
-                        <div class="product-img-placeholder">[ Walker Image ]</div>
-                        <h3 class="product-title">Adjustable Medical Walker</h3>
-                        <p class="product-desc">Lightweight aluminum folding frame designed for premium orthopaedic mobility support.</p>
-                    </div>
-                    <div class="order-action">
-                        <span class="price">Contact for Price</span>
-                        <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Rahul%20Ortho%20Adjustable%20Medical%20Walker" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Product 2: Rahul Ortho Commode Chair -->
-                <div class="product-card" data-brand="rahul-ortho">
-                    <div>
-                        <div class="brand-badge">Rahul Ortho</div>
-                        <div class="product-img-placeholder">[ Commode Chair Image ]</div>
-                        <h3 class="product-title">Premium Commode Chair</h3>
-                        <p class="product-desc">Heavy-duty comfortable layout with height adjustment capabilities for patient recovery.</p>
-                    </div>
-                    <div class="order-action">
-                        <span class="price">Contact for Price</span>
-                        <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Rahul%20Ortho%20Premium%20Commode%20Chair" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Product 3: Tynor Support -->
-                <div class="product-card" data-brand="tynor">
-                    <div>
-                        <div class="brand-badge">Tynor</div>
-                        <div class="product-img-placeholder">[ Orthopaedic Support ]</div>
-                        <h3 class="product-title">Knee Support / Braces</h3>
-                        <p class="product-desc">Advanced body wrap support ensuring controlled compression and mobility enhancement.</p>
-                    </div>
-                    <div class="order-action">
-                        <span class="price">Contact for Price</span>
-                        <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Tynor%20Knee%20Support" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Product 4: Romsons Product -->
-                <div class="product-card" data-brand="romsons">
-                    <div>
-                        <div class="brand-badge">Romsons</div>
-                        <div class="product-img-placeholder">[ Disposables ]</div>
-                        <h3 class="product-title">Premium IV Cannula</h3>
-                        <p class="product-desc">Sustaining life force with precision medical-grade single-use IV equipment.</p>
-                    </div>
-                    <div class="order-action">
-                        <span class="price">Contact for Price</span>
-                        <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Romsons%20Premium%20IV%20Cannula" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Product 5: Spotlight Nebulizer -->
-                <div class="product-card" data-brand="spotlight">
-                    <div>
-                        <div class="brand-badge">Product Spotlight</div>
-                        <div class="product-img-placeholder">[ Compressor Nebulizer ]</div>
-                        <h3 class="product-title">Medical Compressor Nebulizer</h3>
-                        <p class="product-desc">Highly effective diagnostic monitoring device designed for seamless medication administration.</p>
-                    </div>
-                    <div class="order-action">
-                        <span class="price">Contact for Price</span>
-                        <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20the%20Spotlight%20Compressor%20Nebulizer" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
-                    </div>
-                </div>
-
-            </div>
-        </main>
+        <input type="text" class="search-box" id="brandSearch" placeholder="Search companies..." onkeyup="filterBrands()">
     </div>
 
-    <!-- Contact & Store Information Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3>📍 Our Address</h3>
-                <p>Pokri Road, Bansilal Nagar,<br>Ambajogai, India</p>
-            </div>
-            <div class="footer-col">
-                <h3>📞 Contact Details</h3>
-                <p>Mobile: 9420192170, 7666421106</p>
-                <p>Alt: 9175930956, 8180083357</p>
-            </div>
-            <div class="footer-col">
-                <h3>🛡️ Our Commitment</h3>
-                <p>✓ 100% Genuine Medical Products<br>✓ Quality Assured Equipment<br>✓ Free Shop Delivery</p>
-            </div>
+    <!-- MAIN PRODUCT SPACE -->
+    <div class="main-content">
+        <div class="header-banner">
+            <h2>Authorized Partner Directory</h2>
+            <p style="color: var(--text-light); font-size: 14px;">Browse trusted global healthcare, pharmaceutical, and surgical equipment brands.</p>
         </div>
-    </footer>
 
-    <!-- Interactive Filter Logic -->
+        <!-- Dynamic Brand Grid -->
+        <div class="brands-grid" id="brandsGrid">
+            <div class="brand-card"><span class="brand-name">Romson Group</span></div>
+            <div class="brand-card"><span class="brand-name">Romsons Scientific</span></div>
+            <div class="brand-card"><span class="brand-name">Johnson & Johnson</span></div>
+            <div class="brand-card"><span class="brand-name">Ethicon</span></div>
+            <div class="brand-card"><span class="brand-name">Becton Dickinson (BD)</span></div>
+            <div class="brand-card"><span class="brand-name">Smith & Nephew</span></div>
+            <div class="brand-card"><span class="brand-name">3M Healthcare</span></div>
+            <div class="brand-card"><span class="brand-name">B. Braun</span></div>
+            <div class="brand-card"><span class="brand-name">Medtronic</span></div>
+            <div class="brand-card"><span class="brand-name">Abbott</span></div>
+            <div class="brand-card"><span class="brand-name">Baxter International</span></div>
+            <div class="brand-card"><span class="brand-name">Nipro Medical</span></div>
+            <div class="brand-card"><span class="brand-name">Hindustan Syringes (HMD)</span></div>
+            <div class="brand-card"><span class="brand-name">Poly Medicure (Polymed)</span></div>
+        </div>
+    </div>
+
+    <!-- Instant Search Filtering JavaScript -->
     <script>
-        function filterBrand(brand) {
-            // Manage Active Filter Button Style
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        function filterBrands() {
+            const input = document.getElementById('brandSearch');
+            const filter = input.value.toUpperCase();
+            const grid = document.getElementById('brandsGrid');
+            const cards = grid.getElementsByClassName('brand-card');
 
-            // Set dynamic title
-            const title = document.getElementById('catalog-title');
-            if(brand === 'all') {
-                title.innerText = "Showing All Authorized Products";
-            } else {
-                title.innerText = "Showing Products for: " + event.target.innerText;
-            }
-
-            // Filter Product Cards
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                if (brand === 'all' || card.getAttribute('data-brand') === brand) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getElementsByClassName('brand-name')[0];
+                if (name) {
+                    let txtValue = name.textContent || name.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        cards[i].style.display = "";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
                 }
-            });
+            }
         }
     </script>
+
 </body>
 </html>

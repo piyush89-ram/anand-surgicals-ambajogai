@@ -52,23 +52,13 @@ gap:15px;
 }
 
 .logo img{
-height:70px;
+height:100px;
+width:150px;
+object-fit:contain;
 background:white;
 padding:5px;
 border-radius:12px;
-}
-
-.logo-text{
-color:white;
-}
-
-.logo-text h2{
-font-size:28px;
-}
-
-.logo-text p{
-font-size:13px;
-opacity:.9;
+display:block;
 }
 
 .order-btn{
@@ -279,8 +269,9 @@ font-size:20px;
 
 <div class="logo">
 
-<img src="logo.jpeg" alt="Anand Surgicals">
-
+<img src="/static/logo.jpeg"
+     alt="Anand Surgicals Logo"
+     style="width:150px;height:100px;border:3px solid red;background:white;">
 <div class="logo-text">
 <h2>ANAND SURGICALS</h2>
 <p>Your Trusted Healthcare Partner</p>

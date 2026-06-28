@@ -3,71 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anand Surgicals | Authorised Super Distributor</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Anand Surgicals</title>
     <style>
-        :root { --primary-navy: #0B2B5C; --accent-teal: #00938A; --bg-canvas: #EAF1F5; --white: #ffffff; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { display: flex; background-color: var(--bg-canvas); min-height: 100vh; }
+        :root {
+            --primary-blue: #004a99;
+            --light-bg: #f4f7fa;
+            --white: #ffffff;
+        }
 
-        .sidebar { width: 360px; background-color: var(--white); border-right: 1px solid #D3E0EA; position: fixed; height: 100vh; padding: 30px; }
-        .logo-box { text-align: center; margin-bottom: 30px; border-bottom: 2px dashed #CCDCE7; padding-bottom: 20px; }
-        .logo-box img { width: 180px; height: auto; }
-        .main { margin-left: 360px; padding: 40px; width: calc(100% - 360px); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; }
-        .card { background: white; padding: 25px; border-radius: 16px; border: 1px solid #DCE6ED; text-align: center; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-decoration: none; display: block; color: inherit; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); border-color: var(--accent-teal); }
-        .card img { max-width: 100%; height: 70px; object-fit: contain; margin-bottom: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 10px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .tagline {
+            font-style: italic;
+            color: var(--primary-blue);
+        }
+
+        .section-title {
+            background: var(--primary-blue);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .brand-box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            border-radius: 5px;
+        }
+
+        .contact-info {
+            background: #eef;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .footer-features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .brand-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="logo-box">
-            <img src="{{ url_for('static', filename='images/anand_surgicals_logo.png') }}" alt="Anand Surgicals Logo">
-            <h2 style="color:var(--primary-navy); margin-top:10px;">ANAND SURGICALS</h2>
-        </div>
-        <input type="text" id="search" placeholder="🔍 Search brands..." style="width:100%; padding:12px; border: 2px solid #CBDCE7; border-radius: 8px;">
-        <div style="margin-top:40px; color:#555; font-size: 14px;">
-            <p><strong>ADDRESS:</strong><br>Pokri Road, Ambajogai</p><br>
-            <p><strong>CONTACT:</strong><br>9420192170 | 7666421106</p>
-        </div>
+<div class="container">
+    <div class="header">
+        <div class="logo">AS</div>
+        <h1>ANAND SURGICALS</h1>
+        <p class="tagline">Your Trusted Healthcare Partner</p>
     </div>
 
-    <div class="main">
-        <h2 style="color:var(--primary-navy); margin-bottom: 30px;">Corporate Partner Portfolio</h2>
-        <div class="grid" id="brandGrid">
-            
-            <!-- 17 Companies List -->
-            <a href="https://romsons.in/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/romsons.png') }}" alt="Romsons"><p>Romsons</p></a>
-            <a href="https://www.polymedindia.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/polymed.png') }}" alt="Polymed"><p>Polymed</p></a>
-            <a href="https://www.tynor-orto.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/tynor.png') }}" alt="Tynor"><p>Tynor</p></a>
-            <a href="https://topspinal.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/topspinal.png') }}" alt="Top Spinal"><p>Top Spinal</p></a>
-            <a href="https://surgiplus.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/surgiplus.png') }}" alt="Surgiplus"><p>Surgiplus</p></a>
-            <a href="https://nulife.in/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/nulife.png') }}" alt="Nulife"><p>Nulife</p></a>
-            <a href="https://medikit.in/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/medikit.png') }}" alt="Medikit"><p>Medikit</p></a>
-            <a href="https://ramanweil.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/ramanweil.png') }}" alt="Raman & Weil"><p>Raman & Weil</p></a>
-            <a href="https://punishka.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/punishka.png') }}" alt="Punishka"><p>Punishka</p></a>
-            <a href="https://dynamictechno.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/dynamic.png') }}" alt="Dynamic"><p>Dynamic</p></a>
-            <a href="https://healquick.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/healquick.png') }}" alt="HealQuick"><p>HealQuick</p></a>
-            <a href="https://carefirst.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/carefirst.png') }}" alt="CareFirst"><p>CareFirst</p></a>
-            <a href="https://aquafine.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/aquafine.png') }}" alt="Aqua Fine"><p>Aqua Fine</p></a>
-            <a href="https://sava.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/sava.png') }}" alt="Sava"><p>Sava</p></a>
-            <a href="https://primecast.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/primecast.png') }}" alt="Prime Cast"><p>Prime Cast</p></a>
-            <a href="https://rahulortho.com/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/rahulortho.png') }}" alt="Rahul Ortho"><p>Rahul Ortho</p></a>
-            <a href="https://littleangel.in/" target="_blank" class="card"><img src="{{ url_for('static', filename='images/littleangel.png') }}" alt="Little Angel"><p>Little Angel</p></a>
+    <div class="section-title">Authorised Super Distributor</div>
 
-        </div>
+    <div class="brand-grid">
+        <div class="brand-box">Romsons</div>
+        <div class="brand-box">Polymed</div>
+        <div class="brand-box">Tynar</div>
+        <div class="brand-box">Nulife</div>
+        <div class="brand-box">Medikit</div>
+        <div class="brand-box">HealQuick</div>
+        <div class="brand-box">Curesafe</div>
+        <div class="brand-box">Sava</div>
     </div>
 
-    <script>
-        document.getElementById('search').onkeyup = function() {
-            let filter = this.value.toUpperCase();
-            let cards = document.getElementsByClassName('card');
-            for(let card of cards) {
-                card.style.display = card.innerText.toUpperCase().includes(filter) ? "" : "none";
-            }
-        }
-    </script>
+    <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p><strong>Address:</strong> Pokri Road, Bansilal Nagar, Ambajogai</p>
+        <p><strong>Phone:</strong> 9420192170 / 7666421106</p>
+        <p><strong>Email:</strong> anand.surgicals@gmail.com</p>
+    </div>
+
+    <div class="footer-features">
+        <div>✓ 100% Genuine</div>
+        <div>🚚 Free Delivery</div>
+        <div>📞 24/7 Support</div>
+    </div>
+</div>
+
 </body>
+</html>
 </html>

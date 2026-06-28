@@ -6,8 +6,6 @@
     <title>Anand Surgicals - Authorised Super Distributor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:ital,wght@0,400;0,700;0,900;1,700&family=Playfair+Display:ital,wght@1,700;1,900&family=Poppins:ital,wght@0,600;0,700;1,600&display=swap');
-
         :root {
             --primary-navy: #0B2B5C; 
             --accent-teal: #00938A;  
@@ -15,7 +13,6 @@
             --white: #ffffff;
             --text-dark: #122438;
             --text-muted: #5A738E;
-            --border-glow: #CBDCE7;
             --whatsapp-green: #25D366;
         }
 
@@ -49,59 +46,11 @@
             z-index: 100;
         }
 
-        /* --- LOGO GRAPHIC MATCHING --- */
         .logo-block {
             text-align: center;
             margin-bottom: 25px;
             padding-bottom: 25px;
             border-bottom: 2px dashed #CCDCE7;
-        }
-
-        .as-logo-container {
-            position: relative;
-            width: 140px;
-            height: 90px;
-            margin: 0 auto;
-        }
-
-        .letter-a-graphic {
-            font-family: 'Georgia', serif;
-            font-size: 95px;
-            font-weight: 900;
-            color: var(--primary-navy);
-            font-style: italic;
-            position: absolute;
-            left: 0px;
-            top: -25px;
-            line-height: 1;
-            z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
-        }
-
-        .letter-s-graphic {
-            font-family: 'Georgia', serif;
-            font-size: 90px;
-            font-weight: 900;
-            color: var(--accent-teal);
-            font-style: italic;
-            position: absolute;
-            left: 55px;
-            top: -12px;
-            line-height: 1;
-            z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
-        }
-
-        .scalpel-line {
-            position: absolute;
-            bottom: 12px;
-            left: 10px;
-            width: 115px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-navy), var(--accent-teal));
-            transform: rotate(-14deg);
-            border-radius: 2px;
-            z-index: 3;
         }
 
         .anand-text-header {
@@ -137,7 +86,6 @@
             margin-top: 15px;
             display: inline-block;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .search-container { margin: 20px 0; }
@@ -157,7 +105,6 @@
             color: var(--white);
             padding: 22px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(11, 43, 92, 0.2);
         }
 
         .contact-info-row {
@@ -188,7 +135,6 @@
             padding: 35px;
             border-radius: 16px;
             margin-bottom: 35px;
-            box-shadow: 0 8px 20px rgba(10, 46, 92, 0.15);
         }
 
         .hero-title h2 {
@@ -208,10 +154,10 @@
             padding-bottom: 10px;
         }
 
-        /* --- EXACT CARDS CONTAINER DESIGN --- */
+        /* --- LOGO CARDS DIRECTORY GRID --- */
         .brand-directory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
         }
 
@@ -219,14 +165,12 @@
             background: #FFFFFF;
             border: 1px solid #DCE6ED;
             border-radius: 16px;
-            padding: 20px;
-            text-align: center;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 290px;
-            /* Replicating the distinct image card drop shadow style */
-            box-shadow: 0 5px 14px rgba(160, 185, 205, 0.3), inset 0 0 0 1px rgba(255,255,255,0.6);
+            min-height: 410px;
+            box-shadow: 0 5px 14px rgba(160, 185, 205, 0.3);
             transition: all 0.25s ease;
         }
 
@@ -236,105 +180,69 @@
             border-color: var(--accent-teal);
         }
 
-        /* Matches the smooth inner card logo window from the image */
         .brand-logo-display-box {
             width: 100%;
-            height: 100px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 12px;
-            background: radial-gradient(circle, #FFFFFF 60%, #F5F9FC 100%);
+            margin-bottom: 15px;
+            background-color: #ffffff;
             border-radius: 10px;
-            padding: 10px;
             overflow: hidden;
         }
 
-        /* --- EXACT COLOR WEIGHTS & TEXT STYLINGS --- */
-        
-        /* Romsons */
-        .logo-romsons {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-style: italic;
-            font-weight: 900;
-            font-size: 36px;
-            color: #114723;
-            letter-spacing: -1px;
+        .brand-logo-display-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
-        /* Polymed */
-        .logo-polymed-container { display: flex; align-items: center; gap: 8px; }
-        .polymed-icon-square {
-            width: 32px; height: 32px; background-color: #0F5494; border-radius: 6px;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 20px;
+        /* --- PRODUCT SPECIFIC STYLES --- */
+        .product-preview-box {
+            background-color: #F4F8FA;
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-bottom: 15px;
+            flex-grow: 1;
         }
-        .logo-polymed { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #0F5494; font-size: 28px; letter-spacing: -0.5px; }
 
-        /* Top Spinal */
-        .logo-topspinal { font-family: 'Times New Roman', serif; font-weight: bold; color: #8F1A3A; font-size: 28px; }
-        .logo-topspinal span { color: #000000; font-family: 'Segoe UI', sans-serif; font-weight: 700; font-size: 24px; }
+        .product-preview-box strong {
+            font-size: 12px;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 6px;
+        }
 
-        /* Surgiplus */
-        .logo-surgiplus { font-family: 'Poppins', sans-serif; font-weight: 700; color: #0F4C73; font-size: 28px; }
-        .logo-surgiplus span { color: #4FA2D2; font-weight: 800; }
+        .product-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-        /* Tynor */
-        .logo-tynor-box { display: flex; flex-direction: column; align-items: center; }
-        .logo-tynor { font-family: 'Montserrat', sans-serif; font-weight: 900; color: #061A33; font-size: 34px; font-style: italic; line-height: 1; }
-        .tynor-red-arc { width: 75px; height: 4px; background-color: #8C0326; border-radius: 2px; margin-top: 4px; }
+        .product-list li {
+            font-size: 13px;
+            color: #2C3E50;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-        /* Little Angel */
-        .logo-littleangel { font-family: 'Comic Sans MS', cursive, sans-serif; font-weight: bold; color: #8424C4; font-size: 24px; }
-        .logo-littleangel span { color: #FF5EAA; }
-
-        /* Nulife */
-        .logo-nulife-box { display: flex; align-items: center; gap: 6px; }
-        .logo-nulife-icon { color: #007F7F; font-size: 26px; }
-        .logo-nulife { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #005959; font-size: 30px; }
-
-        /* Medikit */
-        .logo-medikit-box { display: flex; align-items: center; gap: 4px; }
-        .logo-medikit { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #0B5731; font-size: 30px; }
-        .medikit-plus { color: #1EC794; font-weight: 900; font-size: 26px; }
-
-        /* Raman & Weil */
-        .logo-ramanweil { font-family: 'Segoe UI', sans-serif; font-weight: 700; color: #172642; font-size: 24px; letter-spacing: -0.5px; }
-
-        /* Punishka */
-        .logo-punishka { font-family: 'Poppins', sans-serif; font-weight: 700; color: #232D3F; font-size: 27px; }
-
-        /* Dynamic */
-        .logo-dynamic { font-family: 'Impact', 'Arial Black', sans-serif; font-style: italic; font-weight: 900; color: #000000; font-size: 34px; }
-        .logo-dynamic span { color: #DE3636; }
-
-        /* HealQuick */
-        .logo-healquick-box { display: flex; align-items: center; gap: 6px; }
-        .logo-healquick { font-family: 'Segoe UI', sans-serif; font-weight: 700; color: #25784C; font-size: 30px; }
-
-        /* CareFirst */
-        .logo-carefirst-box { display: flex; align-items: center; gap: 6px; }
-        .logo-carefirst-icon { width: 26px; height: 26px; border: 4px solid #2463A7; border-radius: 50%; border-top-color: transparent; transform: rotate(45deg); }
-        .logo-carefirst { font-family: 'Segoe UI', sans-serif; font-weight: 700; color: #2463A7; font-size: 30px; }
-
-        /* Aqua Fine */
-        .logo-aquafine { font-family: 'Georgia', serif; font-weight: bold; color: #142E54; font-size: 26px; }
-
-        /* Sava */
-        .logo-sava { font-family: 'Montserrat', sans-serif; font-weight: 900; color: #431244; font-size: 32px; font-style: italic; }
-
-        /* Prime Cast */
-        .logo-primecast { font-family: 'Poppins', sans-serif; font-weight: 800; color: #4C338E; font-size: 28px; }
-
-        /* Rahul Ortho */
-        .logo-rahulortho { font-family: 'Segoe UI', sans-serif; font-weight: 700; color: #232A38; font-size: 27px; }
+        .product-list li::before {
+            content: "•";
+            color: var(--accent-teal);
+            font-weight: bold;
+        }
 
         .brand-motto-text {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
-            margin: 4px 0 16px 0;
+            margin-bottom: 15px;
             font-style: italic;
-            min-height: 18px;
+            text-align: center;
         }
 
         .whatsapp-redirect-link {
@@ -348,15 +256,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.2);
+            gap: 8px;
         }
 
-        .whatsapp-redirect-link:hover { background-color: #20BA5A; transform: scale(1.02); }
+        .whatsapp-redirect-link:hover { background-color: #20BA5A; }
 
         @media (max-width: 992px) {
             body { flex-direction: column; }
-            .sidebar { width: 100%; position: relative; border-right: none; }
+            .sidebar { width: 100%; position: relative; border-right: none; height: auto; }
             .main-workspace { margin-left: 0; padding: 20px; }
         }
     </style>
@@ -366,19 +273,17 @@
     <!-- SIDEBAR LEFT -->
     <div class="sidebar">
         <div class="logo-block">
-            <div class="as-logo-container">
-                <div class="letter-a-graphic">A</div>
-                <div class="letter-s-graphic">S</div>
-                <div class="scalpel-line"></div>
+            <div style="width: 160px; height: auto; margin: 0 auto 15px auto;">
+                <img src="{{ url_for('static', filename='images/anand_surgicals_logo.png') }}" alt="Anand Surgicals Logo" style="width: 100%; height: auto; object-fit: contain;">
             </div>
             <div class="anand-text-header">ANAND</div>
             <div class="surgicals-text-sub">Surgicals</div>
             <br>
-            <div class="trusted-partner-pill">Your Trusted Healthcare Partner</div>
+            <div class="trusted-partner-pill">Your Healthcare Super Distributor</div>
         </div>
 
         <div class="search-container">
-            <input type="text" class="search-bar-input" id="directorySearchInput" placeholder="🔍 Search partners & brands..." onkeyup="executeLiveFilter()">
+            <input type="text" class="search-bar-input" id="directorySearchInput" placeholder="🔍 Search brands or products..." onkeyup="executeLiveFilter()">
         </div>
 
         <div class="contact-card-panel">
@@ -402,7 +307,7 @@
         <div class="hero-banner-display">
             <div class="hero-title">
                 <h2>Authorised Super Distributor</h2>
-                <p style="opacity: 0.9; font-size: 14px; margin-top: 4px;">Premium Medical Products and Equipment Solutions Directory.</p>
+                <p style="opacity: 0.9; font-size: 14px; margin-top: 4px;">Premium Medical Products, Orthopaedic Appliances & Consumer Healthcare Solutions.</p>
             </div>
         </div>
 
@@ -412,158 +317,336 @@
             
             <!-- 1. Romsons -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-romsons">Romsons®</div></div>
-                <div><div class="brand-motto-text">Sustaining the Life Force</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Romsons%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/romsons.png') }}" alt="Romsons"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>IV Cannula & Syringes</li>
+                            <li>Feeding & Oxygen Tubes</li>
+                            <li>Urabags & Catheters</li>
+                            <li>Surgical Gloves & Masks</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Sustaining the Life Force</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Romsons%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 2. Polymed -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box">
-                    <div class="logo-polymed-container">
-                        <div class="polymed-icon-square">p</div>
-                        <div class="logo-polymed">Polymed®</div>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/polymed.png') }}" alt="Polymed"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>IV Catheters & Ports</li>
+                            <li>Blood Collection Tubes</li>
+                            <li>Infusion & Extension Sets</li>
+                            <li>Renal & Dialysis Care</li>
+                        </ul>
                     </div>
                 </div>
-                <div><div class="brand-motto-text">We Care As We Cure</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Polymed%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-motto-text">We Care As We Cure</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Polymed%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 3. Top Spinal -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-topspinal">Top <span>Spinal®</span></div></div>
-                <div><div class="brand-motto-text">Care You Can Trust</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Top%20Spinal%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/topspinal.png') }}" alt="Top Spinal"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Spinal & Epidural Needles</li>
+                            <li>Anaesthesia Kits & Packs</li>
+                            <li>Lumbar Puncture Sets</li>
+                            <li>Specialised Pain Needles</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Care You Can Trust</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Top%20Spinal%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 4. Surgiplus -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box">
-                    <div class="logo-surgiplus">Surgiplus<span>+®</span></div>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/surgiplus.png') }}" alt="Surgiplus"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Non-woven Caps & Shoe Covers</li>
+                            <li>Surgical Gowns & Drapes</li>
+                            <li>Patient Underpads</li>
+                            <li>Cotton Rolls & Bandages</li>
+                        </ul>
+                    </div>
                 </div>
-                <div><div class="brand-motto-text">Surgical Disposables</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Surgiplus%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-motto-text">Surgical Disposables</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Surgiplus%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 5. Tynor -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box">
-                    <div class="logo-tynor-box">
-                        <div class="logo-tynor">Tynor®</div>
-                        <div class="tynor-red-arc"></div>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/tynor.png') }}" alt="Tynor"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Knee & Ankle Supports</li>
+                            <li>LS Belts & Cervical Collars</li>
+                            <li>Wrist Splints & Binders</li>
+                            <li>Rehabilitation Walkers</li>
+                        </ul>
                     </div>
                 </div>
-                <div><div class="brand-motto-text">Cure Innovation</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Tynor%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-motto-text">Cure Innovation</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Tynor%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 6. Little Angel -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-littleangel">Little <span>Angel®</span></div></div>
-                <div><div class="brand-motto-text">Caring for Little Ones</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Little%20Angel%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/littleangel.png') }}" alt="Little Angel"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Premium Baby Diapers</li>
+                            <li>Soft Baby Wipes</li>
+                            <li>Infant Underpads</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Caring for Little Ones</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Little%20Angel%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 7. Nulife -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box">
-                    <div class="logo-nulife-box">
-                        <i class="fa-solid fa-hand-holding-medical logo-nulife-icon"></i>
-                        <div class="logo-nulife">Nulife®</div>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/nulife.png') }}" alt="Nulife"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Sterile Latex Surgical Gloves</li>
+                            <li>Microsurgery Gloves</li>
+                            <li>Nitril Examination Gloves</li>
+                        </ul>
                     </div>
                 </div>
-                <div><div class="brand-motto-text">Triple Safety, Triple Trust</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Nulife%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-motto-text">Triple Safety, Triple Trust</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Nulife%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 8. Medikit -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box">
-                    <div class="logo-medikit-box">
-                        <div class="logo-medikit">MediKit</div>
-                        <div class="medikit-plus">+®</div>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/medikit.png') }}" alt="Medikit"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>IV Cannula & Stop Cocks</li>
+                            <li>Extension Lines</li>
+                            <li>Scalp Vein Sets</li>
+                        </ul>
                     </div>
                 </div>
-                <div><div class="brand-motto-text">Complete Healthcare Solutions</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Medikit%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-motto-text">Complete Healthcare Solutions</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Medikit%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 9. Raman & Weil -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-ramanweil">Raman & weil®</div></div>
-                <div><div class="brand-motto-text">Healthcare Products</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Raman%20and%20Weil%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/ramanweil.png') }}" alt="Raman & Weil"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Hospital Disinfectants</li>
+                            <li>Medical Hand Rubs & Wash</li>
+                            <li>Surface Sanitizers</li>
+                            <li>Instrument Cleaners</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Healthcare Products</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Raman%20and%20Weil%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 10. Punishka -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-punishka">Punishka®</div></div>
-                <div><div class="brand-motto-text">Surgical Accessories</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Punishka%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/punishka.png') }}" alt="Punishka"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Gauze Swabs & Roll Bandage</li>
+                            <li>Abdominal Pads</li>
+                            <li>Surgical Accessories</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Surgical Accessories</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Punishka%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 11. Dynamic -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-dynamic">Dyna<span>mic®</span></div></div>
-                <div><div class="brand-motto-text">Solutions for a Better Life</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Dynamic%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/dynamic.png') }}" alt="Dynamic"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Compression Stockings</li>
+                            <li>Abdominal & Posture Belts</li>
+                            <li>Orthopaedic Splints</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Solutions for a Better Life</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Dynamic%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 12. HealQuick -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box">
-                    <div class="logo-healquick-box">
-                        <i class="fa-solid fa-leaf" style="color:#25784C; font-size:24px;"></i>
-                        <div class="logo-healquick">HealQuick</div>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/healquick.png') }}" alt="HealQuick"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Wound Dressing Kits</li>
+                            <li>First Aid Supplies</li>
+                            <li>Adhesive Gauze Dressings</li>
+                        </ul>
                     </div>
                 </div>
-                <div><div class="brand-motto-text">Medical Solutions Portfolio</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20HealQuick%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-motto-text">Medical Solutions Portfolio</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20HealQuick%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 13. CareFirst -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box">
-                    <div class="logo-carefirst-box">
-                        <div class="logo-carefirst-icon"></div>
-                        <div class="logo-carefirst">CareFirst®</div>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/carefirst.png') }}" alt="CareFirst"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Digital Thermometers</li>
+                            <li>BP Monitors & Oximeters</li>
+                            <li>Medical Consumables</li>
+                        </ul>
                     </div>
                 </div>
-                <div><div class="brand-motto-text">Healthcare First Solutions</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20CareFirst%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-motto-text">Healthcare First Solutions</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20CareFirst%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 14. Aqua Fine -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-aquafine">Aqua Fine™</div></div>
-                <div><div class="brand-motto-text">Precision, Purity, Protection</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Aqua%20Fine%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/aquafine.png') }}" alt="Aqua Fine"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Sterile Water for Injection</li>
+                            <li>Lab Purified Water Packs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Precision, Purity, Protection</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Aqua%20Fine%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 15. Sava -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-sava">Sava®</div></div>
-                <div><div class="brand-motto-text">Strong Support, Gentle Care</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Sava%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/sava.png') }}" alt="Sava"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Rehabilitation Cushions</li>
+                            <li>Cervical & Ortho Pillows</li>
+                            <li>Orthopaedic Heating Pads</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Strong Support, Gentle Care</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Sava%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 16. Prime Cast -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-primecast">Prime Cast®</div></div>
-                <div><div class="brand-motto-text">Premium Orthopaedic Solutions</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Prime%20Cast%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/primecast.png') }}" alt="Prime Cast"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Fiberglass Casting Tapes</li>
+                            <li>Orthopaedic Splints</li>
+                            <li>Plaster of Paris Bandages</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Premium Orthopaedic Solutions</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Prime%20Cast%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
             <!-- 17. Rahul Ortho -->
             <div class="brand-card-item">
-                <div class="brand-logo-display-box"><div class="logo-rahulortho">Rahul Ortho</div></div>
-                <div><div class="brand-motto-text">Mobility Support Products</div></div>
-                <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Rahul%20Ortho%20products." target="_blank" class="whatsapp-redirect-link"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                <div>
+                    <div class="brand-logo-display-box"><img src="{{ url_for('static', filename='images/rahulortho.png') }}" alt="Rahul Ortho"></div>
+                    <div class="product-preview-box">
+                        <strong>Top Products:</strong>
+                        <ul class="product-list">
+                            <li>Orthopaedic Implants</li>
+                            <li>Walkers & Crutches</li>
+                            <li>Manual Wheelchairs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="brand-motto-text">Mobility Support Products</div>
+                    <a href="https://wa.me/919420192170?text=I%20want%20to%20order%20Rahul%20Ortho%20products." target="_blank" class="whatsapp-redirect-link" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+                </div>
             </div>
 
         </div>
     </div>
 
+    <!-- UPGRADED JAVASCRIPT FOR BRAND & PRODUCT FILTERING -->
     <script>
         function executeLiveFilter() {
             const input = document.getElementById('directorySearchInput');
@@ -572,14 +655,24 @@
             const cards = grid.getElementsByClassName('brand-card-item');
 
             for (let i = 0; i < cards.length; i++) {
-                let textBlock = cards[i].querySelector('.brand-logo-display-box');
-                if (textBlock) {
-                    let txtValue = textBlock.textContent || textBlock.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        cards[i].style.display = "";
-                    } else {
-                        cards[i].style.display = "none";
-                    }
+                // Get Company Name
+                let imgElement = cards[i].querySelector('.brand-logo-display-box img');
+                let brandName = imgElement ? (imgElement.getAttribute('alt') || '') : '';
+                
+                // Get List of Products Text
+                let productListText = "";
+                let productItems = cards[i].querySelectorAll('.product-list li');
+                productItems.forEach(item => {
+                    productListText += item.innerText + " ";
+                });
+
+                // Match against Company Name OR Product Names
+                let fullSearchText = (brandName + " " + productListText).toUpperCase();
+
+                if (fullSearchText.indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
                 }
             }
         }

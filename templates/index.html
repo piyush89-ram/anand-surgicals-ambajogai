@@ -5,12 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Anand Surgicals | Your Trusted Healthcare Partner</title>
+<title>Anand Surgicals | Trusted Healthcare Partner</title>
 
-<meta name="description"
-content="Anand Surgicals - Authorised Super Distributor of Surgical Products, Hospital Consumables, Orthopaedic Products, Baby Care and Wellness Products.">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,241 +15,383 @@ content="Anand Surgicals - Authorised Super Distributor of Surgical Products, Ho
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
-background:#f6fbff;
-color:#222;
+font-family:'Poppins',sans-serif;
+background:#f5f8fc;
 overflow-x:hidden;
 }
 
+/* HEADER */
+
 header{
-background:linear-gradient(135deg,#012a6b,#00a9b5);
-padding:15px 30px;
-position:sticky;
+position:fixed;
 top:0;
+left:0;
+width:100%;
+background:white;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
 z-index:1000;
-box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
 .navbar{
-max-width:1300px;
+max-width:1400px;
 margin:auto;
+padding:15px 25px;
 display:flex;
-justify-content:space-between;
 align-items:center;
+gap:25px;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:15px;
+width:220px;
+height:120px;
+flex-shrink:0;
 }
 
 .logo img{
-height:100px;
-width:150px;
+width:100%;
+height:100%;
 object-fit:contain;
-background:white;
-padding:5px;
-border-radius:12px;
-display:block;
 }
 
-.order-btn{
-background:#25D366;
-color:white;
-padding:14px 26px;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
+/* SLIDER */
+
+.slider-container{
+flex:1;
+height:180px;
+overflow:hidden;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
-.order-btn:hover{
-transform:translateY(-3px);
+.slider{
+display:flex;
+width:200%;
+height:100%;
+animation:slide 8s infinite;
 }
+
+.slider img{
+width:50%;
+height:180px;
+object-fit:cover;
+}
+
+@keyframes slide{
+
+0%,45%{
+transform:translateX(0);
+}
+
+50%,95%{
+transform:translateX(-50%);
+}
+
+100%{
+transform:translateX(0);
+}
+
+}
+
+.space{
+height:230px;
+}
+
+/* HERO */
 
 .hero{
-min-height:90vh;
+height:650px;
+
 background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3');
+linear-gradient(rgba(0,43,91,.75),
+rgba(0,43,91,.75)),
+url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3");
+
 background-size:cover;
 background-position:center;
+
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:20px;
+
+padding:30px;
 }
 
-.hero-content{
-max-width:900px;
+.hero-overlay{
+max-width:1100px;
 color:white;
 }
 
-.hero-content h1{
-font-size:60px;
+.hero h1{
+font-size:70px;
+font-family:'Montserrat',sans-serif;
+font-weight:800;
 margin-bottom:20px;
 }
 
-.hero-content p{
-font-size:20px;
+.hero p{
+font-size:24px;
 line-height:1.8;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .hero-btn{
 display:inline-block;
-padding:16px 35px;
+padding:18px 40px;
 background:#25D366;
 color:white;
 text-decoration:none;
 border-radius:50px;
-font-size:18px;
+font-weight:700;
+}
+
+.hero-features{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+margin-top:40px;
+}
+
+.hero-box{
+background:rgba(255,255,255,.15);
+padding:15px 25px;
+border-radius:15px;
+backdrop-filter:blur(10px);
 font-weight:600;
 }
 
-.section{
-padding:80px 20px;
-max-width:1300px;
-margin:auto;
-}
+/* SECTION TITLE */
 
 .section-title{
 text-align:center;
-font-size:42px;
-color:#012a6b;
-margin-bottom:50px;
+font-size:48px;
+font-family:'Montserrat',sans-serif;
+font-weight:800;
+color:#002b5b;
+margin-bottom:40px;
 }
 
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
+/* COMPANY POSTER */
 
-.feature-card{
+.company-profile{
+padding:80px 20px;
 background:white;
-padding:30px;
+}
+
+.profile-container{
+max-width:1400px;
+margin:auto;
+}
+
+.profile-container img{
+width:100%;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.4s;
-text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
 }
 
-.feature-card:hover{
-transform:translateY(-10px);
+/* FEATURED PRODUCTS */
+
+.featured-section{
+padding:80px 20px;
+background:#f4f8ff;
 }
 
-.feature-card h3{
-color:#012a6b;
-margin-bottom:15px;
-}
-
-.company-grid{
+.featured-grid{
+max-width:1400px;
+margin:auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
 }
 
-.company{
-padding:25px;
+.featured-card{
+background:white;
+padding:35px;
 border-radius:20px;
-color:white;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 transition:.4s;
-box-shadow:0 12px 30px rgba(0,0,0,.15);
 }
 
-.company:hover{
-transform:translateY(-8px) scale(1.03);
+.featured-card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 35px rgba(0,0,0,.18);
 }
 
-.company h3{
-margin-bottom:10px;
+.featured-card h3{
 font-size:24px;
+color:#002b5b;
+margin-bottom:12px;
 }
 
-.company p{
-font-size:14px;
-line-height:1.6;
-margin-bottom:20px;
+.featured-card p{
+color:#666;
 }
 
-.company a{
-display:inline-block;
-background:white;
-padding:10px 20px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-color:#012a6b;
-}
-
-.romsons{background:linear-gradient(135deg,#1e3c72,#2a5298);}
-.polymed{background:linear-gradient(135deg,#11998e,#38ef7d);}
-.tynor{background:linear-gradient(135deg,#232526,#414345);}
-.medikit{background:linear-gradient(135deg,#00416a,#799f0c);}
-.rw{background:linear-gradient(135deg,#1f4037,#99f2c8);}
-.dynamic{background:linear-gradient(135deg,#4776e6,#8e54e9);}
-.sava{background:linear-gradient(135deg,#7f00ff,#e100ff);}
-.primecast{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
-.rahul{background:linear-gradient(135deg,#3a1c71,#d76d77);}
-.raxon{background:linear-gradient(135deg,#134e5e,#71b280);}
-
-.contact-box{
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-text-align:center;
-}
-
-.float{
-position:fixed;
-bottom:20px;
-right:20px;
-width:65px;
-height:65px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-color:white;
-text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,.3);
-z-index:999;
-}
-
-footer{
-background:#012a6b;
-color:white;
-text-align:center;
-padding:25px;
-margin-top:50px;
-}
+/* MOBILE */
 
 @media(max-width:768px){
 
-.hero-content h1{
-font-size:38px;
+.navbar{
+flex-direction:column;
 }
 
-.hero-content p{
+.logo{
+width:180px;
+height:90px;
+}
+
+.slider-container{
+width:100%;
+height:120px;
+}
+
+.slider img{
+height:120px;
+}
+
+.hero{
+height:auto;
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.section-title{
+font-size:34px;
+}
+
+}
+
+/* BRAND SECTION */
+
+.brands-section{
+padding:80px 20px;
+background:white;
+}
+
+.brands-grid{
+max-width:1400px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.brand-card{
+padding:35px 20px;
+border-radius:20px;
+text-align:center;
+font-size:22px;
+font-weight:700;
+color:white;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 10px 25px rgba(0,0,0,.10);
+}
+
+.brand-card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+
+.romsons{
+background:linear-gradient(135deg,#005bea,#00c6fb);
+}
+
+.polymed{
+background:linear-gradient(135deg,#11998e,#38ef7d);
+}
+
+.tynor{
+background:linear-gradient(135deg,#7b1fa2,#ba68c8);
+}
+
+.topspinal{
+background:linear-gradient(135deg,#ff8008,#ffc837);
+}
+
+.medikit{
+background:linear-gradient(135deg,#1565c0,#42a5f5);
+}
+
+.lotus{
+background:linear-gradient(135deg,#d81b60,#ff4081);
+}
+
+.aqumen{
+background:linear-gradient(135deg,#2e7d32,#66bb6a);
+}
+
+.generic{
+background:linear-gradient(135deg,#455a64,#90a4ae);
+}
+
+/* PRODUCT ORDER */
+
+
+
+/* CONTACT */
+
+.contact-section{
+padding:80px 20px;
+background:white;
+text-align:center;
+}
+
+.contact-box{
+max-width:700px;
+margin:auto;
+background:#f5f8fc;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.contact-box h3{
+margin-bottom:20px;
+color:#002b5b;
+}
+
+.contact-box p{
+margin:12px 0;
+font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+background:#002b5b;
+color:white;
+text-align:center;
+padding:25px;
 font-size:16px;
 }
 
-.logo img{
-height:55px;
+/* MOBILE */
+
+@media(max-width:768px){
+
+.brands-grid{
+grid-template-columns:1fr;
 }
 
-.logo-text h2{
-font-size:20px;
+.product-grid{
+grid-template-columns:1fr;
+}
+
+.brand-card{
+font-size:18px;
 }
 
 }
@@ -268,362 +407,439 @@ font-size:20px;
 <div class="navbar">
 
 <div class="logo">
+<img src="{{ url_for('static', filename='logo.jpeg') }}" alt="Anand Surgicals">
+</div>
 
-<img src="/static/logo.jpeg"
-     alt="Anand Surgicals Logo"
-     style="width:150px;height:100px;border:3px solid red;background:white;">
-<div class="logo-text">
-<h2>ANAND SURGICALS</h2>
-<p>Your Trusted Healthcare Partner</p>
+<div class="slider-container">
+
+<div class="slider">
+
+<img src="{{ url_for('static', filename='header1.jpeg') }}">
+
+<img src="{{ url_for('static', filename='header2.jpeg') }}">
+
 </div>
 
 </div>
-
-<a class="order-btn"
-href="https://wa.me/919420192170?text=Hello%20Anand%20Surgicals,%20I%20want%20to%20place%20an%20order."
-target="_blank">
-🛒 Order on WhatsApp </a>
 
 </div>
 
 </header>
 
+<div class="space"></div>
+
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-overlay">
 
 <h1>ANAND SURGICALS</h1>
 
 <p>
 Authorised Super Distributor of Surgical Products,
 Hospital Consumables, Orthopaedic Products,
-Baby Care, Diagnostic Devices and Wellness Products.
+Baby Care, Diagnostic Devices & Wellness Products.
 </p>
 
-<a href="https://wa.me/919420192170?text=Hello%20Anand%20Surgicals,%20I%20want%20to%20place%20an%20order."
-class="hero-btn">
-🛒 Order on WhatsApp </a>
+<a href="#" class="hero-btn">
+Explore Products
+</a>
 
-</div>
+<div class="hero-features">
 
-</section>
+<div class="hero-box">100% Genuine Products</div>
 
-<section class="section">
+<div class="hero-box">Fast Delivery</div>
 
-<h2 class="section-title">Why Choose Anand Surgicals?</h2>
+<div class="hero-box">Hospital Supply</div>
 
-<div class="features">
+<div class="hero-box">17+ Premium Brands</div>
 
-<div class="feature-card">
-<h3>100% Genuine Products</h3>
-<p>We supply trusted healthcare products from leading medical brands.</p>
-</div>
-
-<div class="feature-card">
-<h3>24×7 Customer Support</h3>
-<p>Quick assistance for hospitals, clinics and medical stores.</p>
-</div>
-
-<div class="feature-card">
-<h3>Fast Delivery</h3>
-<p>Reliable delivery service with product availability support.</p>
-</div>
-
-<div class="feature-card">
-<h3>Quality Assured</h3>
-<p>Premium surgical and healthcare solutions at competitive pricing.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="section">
+<section class="company-profile">
 
-<h2 class="section-title">Our Brand Partners</h2>
+<h2 class="section-title">
+Our Brand Network
+</h2>
 
-<div class="company-grid">
+<div class="profile-container">
 
-<div class="company romsons">
-<h3>Romsons</h3>
-<p>
-Disposable medical devices, oxygen therapy products,
-catheters, suction equipment and hospital consumables.
-</p>
-
-<a href="https://www.romsons.in/products/"
-target="_blank">
-View Products → </a>
-
-</div>
-
-<div class="company polymed">
-<h3>Polymed</h3>
-<p>
-IV cannula, infusion therapy, dialysis,
-critical care and infection prevention products.
-</p>
-
-<a href="https://polymedicure.com/products/"
-target="_blank">
-View Products → </a>
-
-</div>
-
-<div class="company tynor">
-<h3>Tynor</h3>
-<p>
-Orthopaedic supports, rehabilitation aids,
-belts, braces and healthcare products.
-</p>
-
-<a href="https://www.tynor.com/products"
-target="_blank">
-View Products → </a>
-
-</div>
-
-<div class="company medikit">
-<h3>Medikit</h3>
-<p>
-Anaesthesia, surgery, infusion therapy,
-urology and critical care products.
-</p>
-
-<a href="https://www.medikit.co.in/products/"
-target="_blank">
-View Products → </a>
-
-</div>
-
-<div class="company rw">
-<h3>Raman & Weil</h3>
-<p>
-Hospital equipment, surgical accessories
-and healthcare solutions.
-</p>
-
-<a href="https://www.ramanandweil.com/"
-target="_blank">
-View Products → </a>
-
-</div>
-
-<div class="company dynamic">
-<h3>Dynamic</h3>
-<p>
-Orthopaedic and rehabilitation products
-for healthcare professionals.
-</p>
-
-<a href="https://wa.me/919420192170?text=I%20want%20Dynamic%20products">
-Enquire Now →
-</a>
-</div>
-
-<div class="company sava">
-<h3>Sava</h3>
-<p>
-Pharmaceutical and healthcare products
-for hospitals and medical stores.
-</p>
-
-<a href="https://wa.me/919420192170?text=I%20want%20Sava%20products">
-Enquire Now →
-</a>
-</div>
-
-<div class="company primecast">
-<h3>Prime Cast</h3>
-<p>
-Casting, orthopaedic and immobilization
-products for patient care.
-</p>
-
-<a href="https://wa.me/919420192170?text=I%20want%20Prime%20Cast%20products">
-Enquire Now →
-</a>
-</div>
-
-<div class="company rahul">
-<h3>Rahul Ortho</h3>
-<p>
-Orthopaedic implants, trauma products
-and surgical solutions.
-</p>
-
-<a href="https://wa.me/919420192170?text=I%20want%20Rahul%20Ortho%20products">
-Enquire Now →
-</a>
-</div>
-
-<div class="company raxon">
-<h3>Raxon Biomedical</h3>
-<p>
-Biomedical devices and hospital equipment
-for healthcare institutions.
-</p>
-
-<a href="https://wa.me/919420192170?text=I%20want%20Raxon%20Biomedical%20products">
-Enquire Now →
-</a>
-</div>
+<img src="{{ url_for('static', filename='company-poster.jpeg') }}"
+alt="Brand Network">
 
 </div>
 
 </section>
 
-<section class="section">
+<section class="featured-section">
 
-<h2 class="section-title">More Brands We Deal In</h2>
+<h2 class="section-title">
+Featured Products
+</h2>
 
-<div class="company-grid">
+<div class="featured-grid">
 
-<div class="company polymed">
-<h3>Top Spinal</h3>
-<p>Spinal implants, trauma products and advanced orthopaedic solutions.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20Top%20Spinal%20products">Enquire Now →</a>
+<div class="featured-card">
+<h3>Little Angel Diaper</h3>
+<p>Premium Baby Care Product</p>
 </div>
 
-<div class="company primecast">
-<h3>Surgiplus</h3>
-<p>Surgical disposables, operation theatre and hospital products.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20Surgiplus%20products">Enquire Now →</a>
+<div class="featured-card">
+<h3>Polymed IV Cannula</h3>
+<p>Hospital Consumables</p>
 </div>
 
-<div class="company rw">
-<h3>Little Angel</h3>
-<p>Baby care, maternity care and infant healthcare products.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20Little%20Angel%20products">Enquire Now →</a>
+<div class="featured-card">
+<h3>Tynor Knee Support</h3>
+<p>Orthopaedic Care Product</p>
 </div>
 
-<div class="company dynamic">
-<h3>Nulife</h3>
-<p>Healthcare, wellness and patient care solutions.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20Nulife%20products">Enquire Now →</a>
+<div class="featured-card">
+<h3>Walker</h3>
+<p>Rehabilitation Equipment</p>
 </div>
 
-<div class="company sava">
-<h3>Punishka</h3>
-<p>Medical consumables and hospital support products.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20Punishka%20products">Enquire Now →</a>
+<div class="featured-card">
+<h3>Commode Chair</h3>
+<p>Patient Care Product</p>
 </div>
 
-<div class="company romsons">
-<h3>HealQuick</h3>
-<p>Wound care, dressing and healing management products.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20HealQuick%20products">Enquire Now →</a>
-</div>
-
-<div class="company medikit">
-<h3>CareFirst</h3>
-<p>Patient care, monitoring and healthcare consumables.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20CareFirst%20products">Enquire Now →</a>
-</div>
-
-<div class="company rahul">
-<h3>Aqua Fine</h3>
-<p>Water purification and healthcare utility products.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20Aqua%20Fine%20products">Enquire Now →</a>
-</div>
-
-<div class="company raxon">
-<h3>CureSafe</h3>
-<p>Safety products, medical disposables and infection control solutions.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20CureSafe%20products">Enquire Now →</a>
-</div>
-
-<div class="company polymed">
-<h3>Medixit</h3>
-<p>Medical devices and healthcare support products.</p>
-<a href="https://wa.me/919420192170?text=I%20want%20Medixit%20products">Enquire Now →</a>
+<div class="featured-card">
+<h3>Digital BP Monitor</h3>
+<p>Diagnostic Device</p>
 </div>
 
 </div>
 
 </section>
+<!-- BRAND PARTNERS -->
 
-<section class="section">
+<section class="brands-section">
 
-<h2 class="section-title">Need Any Medical Product?</h2>
+<h2 class="section-title">
+Our Brand Partners
+</h2>
+
+<div class="brands-grid">
+
+<div class="brand-card romsons" onclick="showBrand('romsons')">
+ROMSONS
+</div>
+
+<div class="brand-card polymed" onclick="showBrand('polymed')">
+POLYMED
+</div>
+<div class="brand-card tynor">TYNOR</div>
+<div class="brand-card topspinal">TOP SPINAL</div>
+<div class="brand-card medikit">MEDIKIT</div>
+<div class="brand-card lotus">LOTUS SUTURE</div>
+<div class="brand-card aqumen">AQUMEN MEDTECH</div>
+
+<div class="brand-card generic">FLAMINGO</div>
+<div class="brand-card generic">VISSCO</div>
+<div class="brand-card generic">NULIFE</div>
+<div class="brand-card generic">HICKS</div>
+<div class="brand-card generic">OMRON</div>
+<div class="brand-card generic">ACCU-CHEK</div>
+<div class="brand-card generic">SURGICARE</div>
+<div class="brand-card generic">BECTON DICKINSON</div>
+<div class="brand-card generic">DATT MEDIPRO</div>
+<div class="brand-card generic">LITTLE ANGEL</div>
+
+</div>
+
+</section>
+
+<!-- CART SECTION -->
+
+<section class="contact-section">
+
+<h2 class="section-title">
+Cart & Order
+</h2>
 
 <div class="contact-box">
 
-<h3 style="font-size:32px;color:#012a6b;">
-ANAND SURGICALS
-</h3>
+<input
+type="text"
+id="customerName"
+placeholder="Customer Name"
+style="width:100%;padding:12px;margin-bottom:10px;">
+
+<input
+type="text"
+id="customerMobile"
+placeholder="Mobile Number"
+style="width:100%;padding:12px;margin-bottom:15px;">
+
+<input
+type="text"
+id="customerVillage"
+placeholder="Village Name"
+style="width:100%;padding:12px;margin-bottom:15px;">
+
+<div id="cartDisplay">
+No products added.
+</div>
 
 <br>
 
-<p style="font-size:18px;">
-Authorised Super Distributor of Surgical Products,
-Hospital Consumables, Orthopaedic Products,
-Baby Care & Wellness Products.
-</p>
+<button
+class="hero-btn"
+onclick="sendWhatsAppOrder()">
+Submit Order
+</button>
 
-<br><br>
+</div>
 
-<p style="font-size:18px;">
-📍 Pokri Road, Bansilal Nagar,<br>
+</section>
+
+<!-- ORDER SECTION -->
+
+<!-- GOOGLE MAP -->
+
+<section class="contact-section">
+
+<h2 class="section-title">
+Find Us On Map
+</h2>
+
+<div class="contact-box">
+
+<h3>Anand Surgicals</h3>
+
+<p>
+Pokri Road, Bansilal Nagar,
 Ambajogai, Maharashtra
 </p>
 
-<br>
+<iframe
+src="https://www.google.com/maps?q=Ambajogai,Maharashtra&output=embed"
+width="100%"
+height="450"
+style="border:0;border-radius:15px;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
 
-<p style="font-size:18px;">
-📞 9420192170<br>
-📞 7666421106<br>
-📞 9175930956<br>
-📞 8180083357
-</p>
+</div>
 
-<br>
+</section>
+ 
+<section id="brandProducts" style="display:none;padding:80px 20px;background:#f4f8ff;">
 
-<p style="font-size:18px;">
-📧 anandsurgicals@gmail.com
-</p>
+<h2 class="section-title" id="brandTitle">
+Products
+</h2>
 
-<br><br>
+<div class="featured-grid" id="productContainer">
 
-<a href="https://wa.me/919420192170?text=Hello%20Anand%20Surgicals,%20I%20want%20to%20place%20an%20order."
-class="hero-btn"
-target="_blank">
+</div>
 
-🛒 Order on WhatsApp
+</section>
 
+<!-- WHY US -->
+
+<section class="featured-section">
+
+<h2 class="section-title">
+Why Choose Anand Surgicals
+</h2>
+
+<div class="featured-grid">
+
+<div class="featured-card">
+<h3>100% Genuine Products</h3>
+<p>Trusted Healthcare Brands</p>
+</div>
+
+<div class="featured-card">
+<h3>17+ Premium Companies</h3>
+<p>All Major Brands Under One Roof</p>
+</div>
+
+<div class="featured-card">
+<h3>Fast Supply</h3>
+<p>Hospital & Retail Distribution</p>
+</div>
+
+<div class="featured-card">
+<h3>Customer Support</h3>
+<p>Dedicated Product Assistance</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact-section">
+
+<h2 class="section-title">
+Cart
+</h2>
+
+<div class="contact-box">
+
+<div id="cartItems">
+No products added.
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact-section">
+
+<h2 class="section-title">
+Contact Us
+</h2>
+
+<div class="contact-box">
+
+<h3>Anand Surgicals</h3>
+
+<p>📍 Ambajogai, Maharashtra</p>
+
+<p>📞 +91 9420192170</p>
+
+<p>🏥 Surgical & Medical Distributor</p>
+
+<a href="https://wa.me/919420192170"
+class="hero-btn">
+Order On WhatsApp
 </a>
 
 </div>
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
-
-<h3>ANAND SURGICALS</h3>
-
-<br>
-
-<p>
-Your Trusted Healthcare Partner
-</p>
-
-<br>
 
 <p>
 © 2026 Anand Surgicals | All Rights Reserved
 </p>
 
 </footer>
-
-<a
-class="float"
-href="https://wa.me/919420192170?text=Hello%20Anand%20Surgicals,%20I%20want%20to%20place%20an%20order."
-target="_blank"
-title="Order on WhatsApp">
-
-🛒
-
-</a>
-
 </body>
+<script>
+
+let cart=[];
+
+const products={
+
+romsons:[
+"Little Angel Diaper",
+"Romsons IV Set",
+"Romsons Syringe"
+],
+
+polymed:[
+"IV Cannula",
+"Infusion Set",
+"Blood Transfusion Set"
+]
+
+};
+
+function showBrand(brand){
+
+document.getElementById("brandProducts").style.display="block";
+
+document.getElementById("brandTitle").innerHTML=
+brand.toUpperCase()+" Products";
+
+let html="";
+
+products[brand].forEach(product=>{
+
+html+=`
+<div class="featured-card">
+
+<h3>${product}</h3>
+
+<input type="number"
+id="qty_${product}"
+value="1"
+min="1">
+
+<select id="unit_${product}">
+<option>Pieces</option>
+<option>Box</option>
+<option>Pack</option>
+<option>Case</option>
+</select>
+
+<br><br>
+
+<button class="hero-btn"
+onclick="addToCart('${product}')">
+Add To Cart
+</button>
+
+</div>
+`;
+
+});
+
+document.getElementById("productContainer").innerHTML=html;
+
+}
+
+function addToCart(product){
+
+let qty=
+document.getElementById("qty_"+product).value;
+
+let unit=
+document.getElementById("unit_"+product).value;
+
+cart.push(`${product} - ${qty} ${unit}`);
+
+document.getElementById("cartItems").innerHTML=
+cart.join("<br>");
+
+}
+
+function sendWhatsAppOrder(){
+
+let name =
+document.getElementById("customerName").value;
+
+let mobile =
+document.getElementById("customerMobile").value;
+
+let village =
+document.getElementById("customerVillage").value;
+
+if(cart.length===0){
+alert("Please add products first");
+return;
+}
+
+let message =
+"ANAND SURGICALS ORDER%0A%0A"+
+"Customer Name: "+name+"%0A"+
+"Mobile: "+mobile+"%0A"+
+"Village: "+village+"%0A%0A"+
+"Products:%0A"+
+cart.join("%0A");
+
+window.open(
+"https://wa.me/919420192170?text="+message,
+"_blank"
+);
+
+}
+
+</script>
+
 </html>
+

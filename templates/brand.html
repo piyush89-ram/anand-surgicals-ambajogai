@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ brand }} | Anand Surgicals</title>
+
+   <style>
+    /* DIRECT CSS FOR BRAND PAGE */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    .header {
+        background-color: #007bff;
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .logo-area img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: white;
+    }
+    .logo-area h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    .logo-area a {
+        text-decoration: none;
+    }
+    .cart-icon a, .brand-buttons .cart-btn {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .brand-header {
+        text-align: center;
+        padding: 30px 20px;
+        background: white;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #e1e4e8;
+    }
+    .brand-header h2 {
+        margin: 0 0 10px 0;
+        color: #007bff;
+        font-size: 28px;
+    }
+    .search-section {
+        max-width: 600px;
+        margin: 0 auto 20px auto;
+        padding: 0 15px;
+    }
+    .search-box input {
+        width: 100%;
+        padding: 12px 20px;
+        border: 2px solid #007bff;
+        border-radius: 25px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+    .brand-buttons {
+        max-width: 1200px;
+        margin: 0 auto 20px auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .brand-buttons .back-btn {
+        background-color: #6c757d;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .product-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 40px 20px;
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    .product-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        border: 1px solid #e1e4e8;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .product-card h3 {
+        margin: 0 0 15px 0;
+        font-size: 18px;
+        color: #333;
+        height: 45px;
+        overflow: hidden;
+    }
+    .qty-box, .unit-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .qty-box input, .unit-box select {
+        width: 120px;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .add-cart-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background 0.2s;
+    }
+    .add-cart-btn:hover {
+        background-color: #0056b3;
+    }
+    .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 40px;
+    }
+    .footer p {
+        margin: 5px 0;
+        color: #bbb;
+    }
+
+    /* TOAST ALERT POPUP STYLING */
+    .toast-msg {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        z-index: 2000;
+        display: none;
+        font-weight: bold;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div id="toastMessage" class="toast-msg">✅ Item Cart me add ho gaya!</div>
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <a href="/">
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo">
+        </a>
+
+        <h1>Anand Surgicals</h1>
+
+    </div>
+
+    <div class="cart-icon">
+
+        <a href="/cart">
+            🛒 Cart (<span id="topCartCount">{{ cart_count }}</span>)
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<section class="brand-header">
+
+    <h2>{{ brand }}</h2>
+
+    <p>
+        Select your products and click
+        <b>Add To Cart</b>
+    </p>
+
+</section>
+
+
+
+<section class="search-section">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="brandSearch"
+            placeholder="Search Product in {{ brand }}">
+
+    </div>
+
+</section>
+
+
+
+<div class="brand-buttons">
+
+    <a href="/" class="back-btn">
+
+        ← Home
+
+    </a>
+
+    <a href="/cart" class="cart-btn">
+
+        🛒 View Cart (<span id="btnCartCount">{{ cart_count }}</span>)
+
+    </a>
+
+</div>
+
+
+
+<section class="product-section">
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="product-card"
+             data-name="{{ product|lower }}">
+
+            <h3>{{ product }}</h3>
+
+            <form onsubmit="ajaxAdd(event, this)">
+
+                <input
+                    type="hidden"
+                    name="product"
+                    value="{{ product }}">
+
+                <input
+                    type="hidden"
+                    name="company"
+                    value="{{ company }}">
+
+                <div class="qty-box">
+
+                    <label>Quantity</label>
+
+                    <input
+                        type="number"
+                        name="qty"
+                        value="1"
+                        min="1"
+                        required>
+
+                </div>
+
+                <div class="unit-box">
+
+                    <label>Unit</label>
+
+                    <select name="unit">
+
+                        <option>Pieces</option>
+                        <option>Box</option>
+                        <option>Pack</option>
+                        <option>Case</option>
+
+                    </select>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="add-cart-btn">
+
+                    🛒 Add To Cart
+
+                </button>
+
+            </form>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+
+<footer class="footer">
+
+    <h3>Anand Surgicals</h3>
+
+    <p>Your Trusted Medical & Surgical Products Supplier</p>
+
+    <p>📍 Ambajogai, Maharashtra</p>
+
+    <p>📞 +91 9420192170</p>
+
+    <p>📧 anandsurgicals@gmail.com</p>
+
+    <p>© 2026 Anand Surgicals. All Rights Reserved.</p>
+
+</footer>
+
+
+
+<script>
+// EXISITING SEARCH SCRIPT WORKING FINE
+const searchInput = document.getElementById("brandSearch");
+const productCards = document.querySelectorAll(".product-card");
+
+searchInput.addEventListener("keyup", function(){
+    let keyword = this.value.toLowerCase();
+    productCards.forEach(card=>{
+        let product = card.dataset.name;
+        if(product.includes(keyword)){
+            card.style.display="block";
+        }
+        else{
+            card.style.display="none";
+        }
+    });
+});
+
+// NEW AJAX FUNCTION FOR NO REDIRECT WORK
+function ajaxAdd(event, form) {
+    event.preventDefault(); // Stop redirection
+
+    const formData = new FormData(form);
+    const toast = document.getElementById('toastMessage');
+    const topCount = document.getElementById('topCartCount');
+    const btnCount = document.getElementById('btnCartCount');
+
+    fetch('/add_to_cart', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        // Show success alert toast
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2000);
+
+        // Update counts instantaneously without page wipe
+        let current = parseInt(topCount.innerText) || 0;
+        topCount.innerText = current + 1;
+        btnCount.innerText = current + 1;
+    })
+    .catch(error => console.error('Error adding:', error));
+}
+</script>
+
+</body>
+</html>

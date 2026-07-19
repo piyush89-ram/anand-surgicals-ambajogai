@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Search Products | Anand Surgicals</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Products | Anand Surgicals</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo-area img { width: 50px; height: 50px; border-radius: 50%; background: white; }
+        .logo-area h1 { margin: 0; font-size: 24px; color: white; }
+        .logo-area a { text-decoration: none; }
+        .cart-icon a, .brand-buttons .cart-btn {
+            background-color: #28a745; color: white; padding: 10px 15px;
+            border-radius: 5px; text-decoration: none; font-weight: bold;
+        }
+        .brand-header { text-align: center; padding: 25px; background: white; margin-bottom: 20px; }
+        .brand-header h2 { margin: 0; color: #007bff; }
+        .brand-buttons { max-width: 1200px; margin: 0 auto 20px auto; display: flex; justify-content: space-between; padding: 0 20px; }
+        .brand-buttons .back-btn { background-color: #6c757d; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .product-section { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .product-card {
+            background: white; padding: 20px; border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .product-card h3 { margin: 0 0 10px 0; font-size: 18px; color: #333; }
+        .qty-box, .unit-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .qty-box input, .unit-box select { width: 120px; padding: 6px; border: 1px solid #ccc; border-radius: 4px; }
+        .add-cart-btn {
+            background-color: #007bff; color: white; border: none; padding: 10px;
+            width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer;
+        }
+        .view-company-btn {
+            display: block; text-align: center; text-decoration: none;
+            background: #e9ecef; color: #495057; padding: 8px; border-radius: 5px; font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <a href="/">
+
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}"
+                 alt="Logo">
+
+        </a>
+
+        <h1>Anand Surgicals</h1>
+
+    </div>
+
+    <div class="cart-icon">
+
+        <a href="/cart">
+            🛒 Cart
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- SEARCH RESULT HEADER -->
+
+<section class="brand-header">
+
+    <h2>
+
+        Search Result
+
+    </h2>
+
+    <p>
+
+        Keyword :
+        <b>{{ keyword }}</b>
+
+    </p>
+
+</section>
+
+
+
+<!-- BUTTONS -->
+
+<div class="brand-buttons">
+
+    <a href="/"
+       class="back-btn">
+
+        ← Home
+
+    </a>
+
+    <a href="/cart"
+       class="cart-btn">
+
+        🛒 View Cart
+
+    </a>
+
+</div>
+
+
+
+<!-- RESULT GRID -->
+
+<section class="product-section">
+
+<div class="product-grid">
+{% if products %}
+
+    {% for item in products %}
+
+    <div class="product-card">
+
+        <h3>{{ item.product }}</h3>
+
+        <p>
+
+            <strong>Company:</strong>
+
+            {{ item.company }}
+
+        </p>
+
+        <form action="/add_to_cart" method="POST">
+
+            <input
+                type="hidden"
+                name="product"
+                value="{{ item.product }}">
+
+            <div class="qty-box">
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    name="qty"
+                    value="1"
+                    min="1"
+                    required>
+
+            </div>
+
+            <div class="unit-box">
+
+                <label>Unit</label>
+
+                <select name="unit">
+
+                    <option>Pieces</option>
+                    <option>Box</option>
+                    <option>Pack</option>
+                    <option>Case</option>
+
+                </select>
+
+            </div>
+
+            <button
+                type="submit"
+                class="add-cart-btn">
+
+                🛒 Add To Cart
+
+            </button>
+
+        </form>
+
+        <br>
+
+        <a
+            href="/brand/{{ item.company_url }}"
+            class="view-company-btn">
+
+            🏢 View Company
+
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="no-result">
+
+    <h2>😔 No Products Found</h2>
+
+    <p>
+
+        No products matched your search.
+
+    </p>
+
+    <br>
+
+    <a href="/" class="back-btn">
+
+        ← Back To Home
+
+    </a>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <h3>Anand Surgicals</h3>
+
+    <p>Your Trusted Medical & Surgical Products Supplier</p>
+
+    <p>📍 Ambajogai, Maharashtra</p>
+
+    <p>📞 +91 9420192170</p>
+
+    <p>📧 anandsurgicals@gmail.com</p>
+
+    <p>© 2026 Anand Surgicals. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+
+</html>

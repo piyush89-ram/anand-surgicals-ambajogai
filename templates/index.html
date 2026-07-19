@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anand Surgicals | Medical Products</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        /* HEADER DESIGN FOR RIGHT SIDE CART */
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .logo-area h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .cart-icon a {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .cart-icon a:hover {
+            background-color: #218838;
+        }
+
+        #cartCountDynamic {
+            background-color: #dc3545; 
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        /* SEARCH BOX & SUGGESTIONS CONTAINER */
+        .search-box {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #searchResults {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-height: 320px; 
+            overflow-y: auto; 
+            display: none; 
+        }
+
+        /* SUGGESTION ITEM ROW ADJUSTMENT */
+        .search-suggestion-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            gap: 15px;
+        }
+
+        .search-suggestion-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .suggestion-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            text-align: left;
+        }
+
+        .prod-name {
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .comp-name {
+            font-size: 11px;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        /* STATED FORM CONTROL FIXES FOR SIZES */
+        .suggestion-form {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .suggestion-form input.suggest-qty {
+            width: 55px !important;
+            min-width: 55px !important;
+            max-width: 55px !important;
+            height: 34px !important;
+            padding: 2px !important;
+            border: 1px solid #ccc !important;
+            border-radius: 4px !important;
+            text-align: center !important;
+            font-weight: bold !important;
+            margin: 0 !important;
+            display: inline-block !important;
+            flex: none !important;
+        }
+
+        .suggestion-form select.suggest-unit {
+            width: 80px !important;
+            min-width: 80px !important;
+            height: 34px !important;
+            padding: 2px !important;
+            border: 1px solid #ccc !important;
+            border-radius: 4px !important;
+            background: white !important;
+            font-size: 12px !important;
+            margin: 0 !important;
+            display: inline-block !important;
+            flex: none !important;
+        }
+
+        .suggest-add-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            height: 34px;
+            padding: 0 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            white-space: nowrap;
+            flex: none;
+        }
+
+        .suggest-add-btn:hover {
+            background-color: #218838;
+        }
+        
+        .toast-msg {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 2000;
+            display: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="toastMessage" class="toast-msg">✅ Item Cart me add ho gaya!</div>
+
+<header class="header">
+    <div class="logo-area">
+        <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Anand Surgicals Logo">
+        <h1>Anand Surgicals</h1>
+    </div>
+    <div class="cart-icon">
+        <a href="/cart" id="cartNavBtn">🛒 Cart <span id="cartCountDynamic">{{ cart_items|length if cart_items else 0 }}</span></a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="slider">
+        <img src="{{ url_for('static', filename='images/header1.jpeg') }}" class="slide">
+        <img src="{{ url_for('static', filename='images/header2.jpeg') }}" class="slide">
+    </div>
+</section>
+
+<section class="search-section">
+    <h2>🔍 Search Your Product</h2>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search product like IV Set, Syringe..." autocomplete="off">
+        <div id="searchResults"></div>
+    </div>
+</section>
+
+<section class="order-section">
+    <div class="order-heading">
+        <h2>🔍 Search Your Product Above</h2>
+        <h3>OR</h3>
+        <h2>👇 Click Any Company Below to Place Your Order</h2>
+    </div>
+</section>
+
+<img src="{{ url_for('static', filename='images/company-poster.jpeg') }}" class="company-poster">
+
+<section class="company-section">
+    <div class="company-grid">
+        {% for company in companies %}
+        <a href="/brand/{{ company }}" class="company-link">
+            <div class="company-card">{{ company.upper() }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-section about">
+            <h3>Anand Surgicals</h3>
+            <p>Your Trusted Medical, Surgical & Hospital Products Supplier. Providing top-quality healthcare brands with efficient service.</p>
+        </div>
+
+        <div class="footer-section contact-info">
+            <h3>📞 Contact Details</h3>
+            <p><strong>Phone:</strong> <a href="tel:+919420192170">+91 9420192170</a></p>
+            <p><strong>Email:</strong> <a href="mailto:anandsurgicals@gmail.com">anandsurgicals@gmail.com</a></p>
+            <p><strong>Timing:</strong> 9:00 AM - 8:00 PM (Mon - Sat)</p>
+        </div>
+
+        <div class="footer-section location">
+            <h3>📍 Our Location</h3>
+            <p>Ambajogai, Maharashtra, India</p>
+            <a href="https://maps.google.com/?q=Anand+Surgicals+Ambajogai" target="_blank" class="map-link-btn">
+                🗺️ View on Google Maps
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Anand Surgicals. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<style>
+    .main-footer {
+        background-color: #1a1a1a;
+        color: #ffffff;
+        padding: 40px 20px 10px 20px;
+        font-family: Arial, sans-serif;
+        margin-top: 50px;
+    }
+
+    .footer-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .footer-section h3 {
+        color: #007bff;
+        font-size: 18px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 5px;
+        display: inline-block;
+    }
+
+    .footer-section p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #cccccc;
+        margin: 8px 0;
+    }
+
+    .footer-section a {
+        color: #28a745;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    /* Google Map Button Styling */
+    .map-link-btn {
+        display: inline-block;
+        background-color: #007bff;
+        color: white !important;
+        padding: 10px 15px;
+        border-radius: 4px;
+        font-size: 13px;
+        margin-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.2s;
+    }
+
+    .map-link-btn:hover {
+        background-color: #0056b3;
+        text-decoration: none !important;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        border-top: 1px solid #333;
+        margin-top: 30px;
+        padding-top: 15px;
+        font-size: 13px;
+        color: #777777;
+    }
+</style>
+<script>
+    const inputField = document.getElementById('searchInput');
+    const resultsDiv = document.getElementById('searchResults');
+    const toast = document.getElementById('toastMessage');
+    const cartCountSpan = document.getElementById('cartCountDynamic');
+
+    // Tracking item lines rather than total piece sum quantities
+    let uniqueProductCount = parseInt(cartCountSpan.innerText) || 0;
+
+    inputField.addEventListener('input', function() {
+        let query = this.value.trim().toLowerCase();
+        
+        if (query.length < 2) {
+            resultsDiv.style.display = 'none';
+            resultsDiv.innerHTML = '';
+            return;
+        }
+
+        fetch('/search?keyword=' + encodeURIComponent(query))
+        .then(response => response.text())
+        .then(html => {
+            let parser = new DOMParser();
+            let doc = parser.parseFromString(html, 'text/html');
+            let productCards = doc.querySelectorAll('.product-card');
+
+            resultsDiv.innerHTML = '';
+            let itemsFoundCount = 0;
+            
+            if (productCards.length > 0) {
+                productCards.forEach(card => {
+                    let pName = card.querySelector('h3').innerText;
+                    let cNameElement = card.querySelector('p');
+                    let cName = cNameElement ? cNameElement.innerText.replace('Company:', '').trim() : 'ADLISC';
+
+                    if (pName.toLowerCase().includes(query) || cName.toLowerCase().includes(query)) {
+                        itemsFoundCount++;
+                        let row = document.createElement('div');
+                        row.className = 'search-suggestion-item';
+                        row.innerHTML = `
+                            <div class="suggestion-info">
+                                <span class="prod-name">${pName}</span>
+                                <span class="comp-name">${cName}</span>
+                            </div>
+                            <form class="suggestion-form" onsubmit="ajaxAddToCart(event, this)">
+                                <input type="hidden" name="product" value="${pName}">
+                                <input type="hidden" name="company" value="${cName}">
+                                <input type="number" name="qty" value="1" min="1" class="suggest-qty" required>
+                                <select name="unit" class="suggest-unit">
+                                    <option>Pieces</option>
+                                    <option>Box</option>
+                                    <option>Pack</option>
+                                    <option>Case</option>
+                                </select>
+                                <button type="submit" class="suggest-add-btn">🛒 Add</button>
+                            </form>
+                        `;
+                        resultsDiv.appendChild(row);
+                    }
+                });
+            }
+
+            if (itemsFoundCount > 0) {
+                resultsDiv.style.display = 'block';
+            } else {
+                resultsDiv.style.display = 'block';
+                resultsDiv.innerHTML = '<p style="padding:12px; text-align:center; color:#dc3545; font-weight:bold; margin:0;">No matching products found.</p>';
+            }
+        })
+        .catch(err => console.error("Error: ", err));
+    });
+
+    function ajaxAddToCart(event, form) {
+        event.preventDefault(); 
+        const formData = new FormData(form);
+
+        fetch('/add_to_cart', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 2000); 
+            
+            // FIX: Increment unique distinct item types only (+1 item name grouped) 
+            // Instead of total quantity additions (e.g. 25 pieces doesn't add 25 to layout counter)
+            uniqueProductCount += 1;
+            cartCountSpan.innerText = uniqueProductCount;
+
+            inputField.value = '';
+            resultsDiv.style.display = 'none';
+        })
+        .catch(error => console.error('Error adding item:', error));
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!inputField.contains(e.target) && !resultsDiv.contains(e.target)) {
+            resultsDiv.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>

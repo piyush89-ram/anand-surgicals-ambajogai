@@ -63,6 +63,31 @@
             font-weight: bold;
         }
 
+        /* HERO SLIDER DESIGN */
+        .hero {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            width: 100%;
+            position: relative;
+            min-height: 250px; /* Adjust height as needed */
+        }
+
+        .slide {
+            width: 100%;
+            display: none;
+            height: auto;
+            object-fit: cover;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
         /* SEARCH BOX & SUGGESTIONS CONTAINER */
         .search-box {
             position: relative;
@@ -185,6 +210,82 @@
             display: none;
             font-weight: bold;
         }
+
+        /* FOOTER STYLES */
+        .main-footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 40px 20px 10px 20px;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: #007bff;
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #cccccc;
+            margin: 8px 0;
+        }
+
+        .footer-section a {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .map-link-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white !important;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-top: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .map-link-btn:hover {
+            background-color: #0056b3;
+            text-decoration: none !important;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 30px;
+            padding-top: 15px;
+            font-size: 13px;
+            color: #777777;
+        }
     </style>
 </head>
 
@@ -204,8 +305,8 @@
 
 <section class="hero">
     <div class="slider">
-        <img src="{{ url_for('static', filename='images/header1.jpeg') }}" class="slide">
-        <img src="{{ url_for('static', filename='images/header2.jpeg') }}" class="slide">
+        <img src="{{ url_for('static', filename='images/header1.jpeg') }}" class="slide active" alt="Header 1">
+        <img src="{{ url_for('static', filename='images/header2.jpeg') }}" class="slide" alt="Header 2">
     </div>
 </section>
 
@@ -261,94 +362,41 @@
     </div>
     
     <div class="footer-bottom">
-        <p>&copy; 2026 Anand Surgicals. All Rights Reserved.</p>
+        <p>© 2026 Anand Surgicals. All Rights Reserved.</p>
     </div>
 </footer>
 
-<style>
-    .main-footer {
-        background-color: #1a1a1a;
-        color: #ffffff;
-        padding: 40px 20px 10px 20px;
-        font-family: Arial, sans-serif;
-        margin-top: 50px;
-    }
-
-    .footer-container {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 30px;
-    }
-
-    .footer-section {
-        flex: 1;
-        min-width: 250px;
-    }
-
-    .footer-section h3 {
-        color: #007bff;
-        font-size: 18px;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #007bff;
-        padding-bottom: 5px;
-        display: inline-block;
-    }
-
-    .footer-section p {
-        font-size: 14px;
-        line-height: 1.6;
-        color: #cccccc;
-        margin: 8px 0;
-    }
-
-    .footer-section a {
-        color: #28a745;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .footer-section a:hover {
-        text-decoration: underline;
-    }
-
-    /* Google Map Button Styling */
-    .map-link-btn {
-        display: inline-block;
-        background-color: #007bff;
-        color: white !important;
-        padding: 10px 15px;
-        border-radius: 4px;
-        font-size: 13px;
-        margin-top: 10px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background 0.2s;
-    }
-
-    .map-link-btn:hover {
-        background-color: #0056b3;
-        text-decoration: none !important;
-    }
-
-    .footer-bottom {
-        text-align: center;
-        border-top: 1px solid #333;
-        margin-top: 30px;
-        padding-top: 15px;
-        font-size: 13px;
-        color: #777777;
-    }
-</style>
 <script>
+    // --- AUTOMATIC IMAGE SLIDER JS ---
+    document.addEventListener("DOMContentLoaded", function () {
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlides() {
+            if (slides.length === 0) return;
+
+            slides.forEach(slide => {
+                slide.classList.remove("active");
+            });
+
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            slides[slideIndex - 1].classList.add("active");
+        }
+
+        // Har 3 Second mein slide change hogi
+        setInterval(showSlides, 3000);
+    });
+
+    // --- SEARCH & CART JS ---
     const inputField = document.getElementById('searchInput');
     const resultsDiv = document.getElementById('searchResults');
     const toast = document.getElementById('toastMessage');
     const cartCountSpan = document.getElementById('cartCountDynamic');
 
-    // Tracking item lines rather than total piece sum quantities
     let uniqueProductCount = parseInt(cartCountSpan.innerText) || 0;
 
     inputField.addEventListener('input', function() {
@@ -425,8 +473,6 @@
             toast.style.display = 'block';
             setTimeout(() => { toast.style.display = 'none'; }, 2000); 
             
-            // FIX: Increment unique distinct item types only (+1 item name grouped) 
-            // Instead of total quantity additions (e.g. 25 pieces doesn't add 25 to layout counter)
             uniqueProductCount += 1;
             cartCountSpan.innerText = uniqueProductCount;
 

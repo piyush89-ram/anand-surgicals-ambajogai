@@ -22,7 +22,7 @@ def get_products(company):
     try:
         df = pd.read_excel(file_path)
         products = (
-            df.iloc[7:, 0]
+            df.iloc[9:, 0]
             .dropna()
             .astype(str)
             .str.strip()
